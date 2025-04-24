@@ -1,6 +1,4 @@
-/* Styles moved from inline JSX in components */
-
-/* --- About.jsx --- */
+/* About page styles */
 .about-page-custom {
   min-height: 80vh;
   display: flex;
@@ -36,122 +34,7 @@
   line-height: 1.7;
 }
 
-/* --- Home.jsx, ComputerScienceHome.jsx, VideoEditingHome.jsx --- */
-.page-root-custom {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--background);
-  color: var(--text);
-  padding: 2rem 1rem 4rem 1rem;
-  position: relative;
-}
-.page-title-custom {
-  font-size: 3.5rem;
-  font-weight: 900;
-  letter-spacing: -2px;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
-}
-.page-subtitle-custom {
-  font-weight: 400;
-  color: var(--accent);
-  margin-bottom: 2.2rem;
-  font-size: 1.6rem;
-  letter-spacing: 0.5px;
-}
-.page-nav-custom {
-  display: flex;
-  gap: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-.page-nav-link-custom {
-  color: var(--text);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  padding: 0.2rem 0.5rem;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
-}
-.page-description-custom {
-  max-width: 600px;
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  text-align: center;
-  line-height: 1.7;
-}
-.page-projects-link-custom {
-  background: var(--primary);
-  color: #181c24;
-  padding: 0.8rem 2.2rem;
-  border-radius: 2rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
-  transition: background 0.2s, color 0.2s;
-}
-.page-buttons-custom {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-.page-social-bar-custom {
-  bottom: 24px;
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  z-index: 100;
-}
-.page-social-link-custom {
-  color: var(--text);
-  font-size: 2rem;
-  transition: color 0.2s;
-}
-
-/* --- AnimatedElement.jsx --- */
-.animated-element {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.animated-element.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- ProjectPopup.jsx --- */
-.project-popup-custom {
-  padding: 40px;
-  text-align: center;
-}
-.project-popup-note-custom {
-  color: #888;
-}
-
-/* --- ProjectTemplate.jsx --- */
-.project-template-custom {
-  width: 100%;
-  max-width: 100%;
-  margin: 2rem 0;
-  text-align: center;
-}
-
-/* --- ProjectDemo.jsx --- */
-.other-projects-custom {
-  margin-top: 32px;
-}
-.other-projects-btn-custom {
-  margin-left: 12px;
-}
-
-/* --- FilmEditing.jsx (modal styles) --- */
+/* FilmEditing modal styles */
 .film-editing-modal-overlay-custom {
   position: fixed;
   top: 0;
@@ -185,78 +68,7 @@
   line-height: 1;
 }
 
-/* --- Shared content-page layout for non-home pages --- */
-.content-page {
-  min-height: 100vh;
-  width: 100vw;
-  background: var(--background);
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0 4rem 0;
-}
-
-.content-page-title {
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: var(--primary);
-  margin: 2.5rem 0 1.5rem 0;
-  text-align: center;
-  letter-spacing: -1.5px;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
-}
-
-.media-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  width: 90vw;
-  max-width: 1200px;
-  padding: 2rem 0;
-}
-
-.media-card {
-  background: var(--surface);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.18s, box-shadow 0.18s;
-  cursor: pointer;
-  min-height: 340px;
-  transform-origin: center center;
-  /* Add perspective for 3D tilt */
-  perspective: 800px;
-}
-.media-card:hover {
-  transform: translateY(-8px) scale(1.03) rotateY(10deg) rotateX(2deg);
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.35);
-}
-.media-card-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  background: #222;
-  display: block;
-}
-.media-card-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin: 1.2rem 0 0.5rem 0;
-  text-align: center;
-}
-.media-card-description {
-  color: var(--text-muted);
-  font-size: 1.05rem;
-  text-align: center;
-  margin: 0 1rem 1.5rem 1rem;
-}
-
-/* --- ComputerScience.jsx Portfolio Page --- */
+/* ComputerScience portfolio page styles */
 .cs-portfolio-page {
   background: linear-gradient(120deg, #181c24 60%, #232836 100%);
   min-height: 100vh;
@@ -387,4 +199,12 @@
   .cs-media-card-description {
     font-size: 0.98rem;
   }
+}
+
+.media-card-image-bg {
+  background: #232836;
+}
+
+.pre-line {
+  white-space: pre-line;
 }

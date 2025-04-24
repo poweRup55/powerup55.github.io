@@ -1,5 +1,6 @@
 import React from "react";
-import "../ComponentsStyles.css";
+import "./About.css";
+import "../styles/Shared.css";
 import {
   FaUser,
   FaCode,
@@ -7,12 +8,22 @@ import {
   FaGraduationCap,
   FaCertificate,
   FaUsers,
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
+  // FaEnvelope, // Not used
+  // FaGithub, // Not used
+  // FaLinkedin, // Not used
 } from "react-icons/fa";
+import MediaCardGrid from "../MediaCardGrid";
+import { MediaCardProps } from "../MediaCard"; // Corrected import
 
-const csCards = [
+// Define the structure for the Computer Science card data
+interface CSCardData {
+  title: string;
+  icon: React.ReactNode;
+  description: string;
+}
+
+// Define the card data with the CSCardData type
+const csCards: CSCardData[] = [
   {
     title: "About Me",
     icon: <FaUser size={32} color="#00ff99" />,
@@ -51,38 +62,33 @@ const csCards = [
   },
 ];
 
-const ComputerScience = () => (
-  <div className="content-page cs-portfolio-page">
-    {/* Profile image placeholder */}
-    <div className="cs-profile-image-wrapper">
-      <div className="cs-profile-image">
-        <FaUser size={64} color="#00ff99" />
-      </div>
-      <div className="cs-profile-name">Yonatan Koritny</div>
-      <div className="cs-profile-role">
-        Software Engineer & Creative Technologist
-      </div>
-    </div>
-    <h1 className="content-page-title cs-portfolio-title">Computer Science</h1>
-    <div className="media-card-grid cs-media-card-grid">
-      {csCards.map((card, idx) => (
-        <div className="media-card cs-media-card" key={idx}>
-          <div className="media-card-image cs-media-card-image">
-            {card.icon}
-          </div>
-          <div className="media-card-title cs-media-card-title">
-            {card.title}
-          </div>
-          <div
-            className="media-card-description cs-media-card-description"
-            style={{ whiteSpace: "pre-line" }}
-          >
-            {card.description}
-          </div>
+const ComputerScience: React.FC = () => {
+  // Map CSCardData to MediaCardProps
+  const mediaCards: MediaCardProps[] = csCards.map((card) => ({
+    title: card.title,
+    description: card.description,
+    icon: card.icon,
+    className: "cs-media-card", // Apply specific class name
+  }));
+
+  return (
+    <div className="content-page cs-portfolio-page">
+      {/* Profile image placeholder */}
+      <div className="cs-profile-image-wrapper">
+        <div className="cs-profile-image">
+          <FaUser size={64} color="#00ff99" />
         </div>
-      ))}
+        <div className="cs-profile-name">Yonatan Koritny</div>
+        <div className="cs-profile-role">
+          Software Engineer & Creative Technologist
+        </div>
+      </div>
+      <h1 className="content-page-title cs-portfolio-title">
+        Computer Science
+      </h1>
+      <MediaCardGrid cards={mediaCards} className="cs-media-card-grid" />
     </div>
-  </div>
-);
+  );
+};
 
 export default ComputerScience;
