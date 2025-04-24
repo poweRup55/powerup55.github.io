@@ -1,44 +1,44 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import "./index.css";
+import Home from "./components/Home/Home";
+import FilmEditing from "./components/About/FilmEditing";
+import ComputerScience from "./components/About/ComputerScience";
+import ProjectDemo from "./components/Project/ProjectDemo";
+import PopupDemo from "./components/Modal/PopupDemo";
+import About from "./components/About/About";
+import HomeNav from "./components/Home/HomeNav";
 
-// Components for different sections
-const Home = () => (
-  <div className="home">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Explore my work in Film and Editing, and Computer Science.</p>
-  </div>
-);
-
-const FilmEditing = () => (
-  <div className="film-editing">
-    <h1>Film and Editing</h1>
-    <p>Showcasing my projects and achievements in film and video editing.</p>
-  </div>
-);
-
-const ComputerScience = () => (
-  <div className="computer-science">
-    <h1>Computer Science</h1>
-    <p>
-      Highlighting my work and skills in software development and technology.
-    </p>
-  </div>
-);
+function AppContent() {
+  const location = useLocation();
+  return (
+    <>
+      <main className="main-content">
+        {location.pathname !== "/" && <HomeNav />}
+        <div className="content-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/film-editing" element={<FilmEditing />} />
+            <Route path="/computer-science" element={<ComputerScience />} />
+            <Route path="/project-demo" element={<ProjectDemo />} />
+            <Route path="/popup-demo" element={<PopupDemo />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </main>
+    </>
+  );
+}
 
 function App() {
   return (
     <Router>
-      <nav className="navbar">
-        <Link to="/">Home</Link>
-        <Link to="/film-editing">Film and Editing</Link>
-        <Link to="/computer-science">Computer Science</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/film-editing" element={<FilmEditing />} />
-        <Route path="/computer-science" element={<ComputerScience />} />
-      </Routes>
+      <AppContent />
     </Router>
   );
 }
