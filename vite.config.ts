@@ -7,15 +7,16 @@ export default defineConfig({
     alias: {},
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
   },
-  base: "/",
+  base: "./", // Use relative paths for GitHub Pages
   build: {
     outDir: "dist",
     assetsDir: "assets",
     rollupOptions: {
       output: {
-        chunkFileNames: "assets/js/[name]-[hash].js",
-        entryFileNames: "assets/js/[name]-[hash].js",
-      },
+        manualChunks: undefined, // Ensures proper bundling
+        chunkFileNames: "assets/[name]-[hash].js",
+        entryFileNames: "assets/[name]-[hash].js",
+      }
     },
   },
 });
