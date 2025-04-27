@@ -1,0 +1,26 @@
+/* Project popup and template styles */
+.project-popup-custom {
+  padding: 40px;
+  text-align: center;
+}
+.project-popup-note-custom {
+  color: #888;
+}
+
+.project-template-custom {
+  width: 100%;
+  max-width: 100%;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.other-projects-custom {
+  margin-top: 32px;
+}
+.other-projects-btn-custom {
+  margin-left: 12px;
+}
+
+.media-card-image-bg {
+  background: #232836;
+}
