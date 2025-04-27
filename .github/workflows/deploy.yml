@@ -1,6 +1,9 @@
 # .github/workflows/deploy.yml
 name: Deploy to GitHub Pages
 
+permissions:
+  contents: write
+  pages: write
 on:
   push:
     branches:
@@ -9,7 +12,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
@@ -29,3 +31,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
