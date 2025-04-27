@@ -7,4 +7,15 @@ export default defineConfig({
     alias: {},
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
   },
+  base: "/",
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        chunkFileNames: "assets/js/[name]-[hash].js",
+        entryFileNames: "assets/js/[name]-[hash].js",
+      },
+    },
+  },
 });
