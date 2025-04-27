@@ -1,22 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Animations.css";
 
-// Define the structure for an orbiting word
 interface OrbitWord {
   label: string;
   ariaLabel: string;
   path: string;
 }
 
-// Define the array of words with the OrbitWord type
 const orbitWords: OrbitWord[] = [
   { label: "Artist", ariaLabel: "Artist", path: "/artist" },
   { label: "Video Editor", ariaLabel: "Video Editor", path: "/film-editor" },
   { label: "Developer", ariaLabel: "Developer", path: "/developer" },
 ];
 
-// Define CSS properties including custom properties
 interface OrbitStyle extends React.CSSProperties {
   "--angle": string;
   "--radius": string;
@@ -24,16 +21,28 @@ interface OrbitStyle extends React.CSSProperties {
 
 const RotatingWords: React.FC = () => {
   const navigate = useNavigate();
-  const orbitRadius: number = 170; // Explicitly type radius
+  const orbitRadius: number = 250;
+  const [isMobileView, setIsMobileView] = useState<boolean>(
+    window.innerWidth < 750
+  );
 
-  // Type the path parameter as string
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 750);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const handleWordClick = (path: string): void => {
     navigate(path);
   };
 
-  // Type the event and path parameters
   const handleWordKeyDown = (
-    event: React.KeyboardEvent<HTMLDivElement>,
+    event: React.KeyboardEvent<HTMLDivElement | HTMLButtonElement>,
     path: string
   ): void => {
     if (event.key === "Enter" || event.key === " ") {
@@ -44,38 +53,53 @@ const RotatingWords: React.FC = () => {
 
   return (
     <div className="rotating-words-container">
-      <div className="center-name" aria-label="Yonatan Koritny">
+      <a className="center-name" aria-label="Yonatan Koritny" href="/about">
         Yonatan
         <br />
         Koritny
-      </div>
+      </a>
 
-      <div className="orbit-container">
-        {orbitWords.map((word, idx) => {
-          const angle: number = (idx / orbitWords.length) * 360; // Explicitly type angle
-
-          // Define the style object with the OrbitStyle type
-          const style: OrbitStyle = {
-            "--angle": `${angle}deg`,
-            "--radius": `${orbitRadius}px`,
-          };
-
-          return (
-            <div
+      {isMobileView ? (
+        <div className="static-words-container">
+          {orbitWords.map((word) => (
+            <button
               key={word.label}
-              className="orbit-word"
-              style={style} // Apply the typed style object
-              tabIndex={0}
+              className="static-word-button"
               aria-label={word.ariaLabel}
-              role="button"
               onClick={() => handleWordClick(word.path)}
               onKeyDown={(e) => handleWordKeyDown(e, word.path)}
             >
-              <span className="orbit-word-text">{word.label}</span>
-            </div>
-          );
-        })}
-      </div>
+              {word.label}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className="orbit-container">
+          {orbitWords.map((word, idx) => {
+            const angle: number = (idx / orbitWords.length) * 360;
+
+            const style: OrbitStyle = {
+              "--angle": `${angle}deg`,
+              "--radius": `${orbitRadius}px`,
+            };
+
+            return (
+              <div
+                key={word.label}
+                className="orbit-word"
+                style={style}
+                tabIndex={0}
+                aria-label={word.ariaLabel}
+                role="button"
+                onClick={() => handleWordClick(word.path)}
+                onKeyDown={(e) => handleWordKeyDown(e, word.path)}
+              >
+                <span className="orbit-word-text">{word.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

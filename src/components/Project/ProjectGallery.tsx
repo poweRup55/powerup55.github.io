@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MediaCardGrid from "./Project/MediaCardGrid";
-import "./styles/Shared.css";
-import { MediaCardProps } from "./Project/MediaCard";
+import MediaCardGrid from "./MediaCardGrid";
+import "../styles/Shared.css";
+import { MediaCardProps } from "./MediaCard";
 
 export interface Project {
   title: string;
