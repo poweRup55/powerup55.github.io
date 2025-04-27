@@ -1,16 +1,6 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home/Home";
-import FilmEditing from "./components/About/FilmEditing";
-import ComputerScience from "./components/About/ComputerScience";
-import Artist from "./components/About/Artist";
-import About from "./components/About/About";
 import Navbar from "./components/NavBar/Navbar";
 import {
   navLinks,
@@ -19,9 +9,14 @@ import {
   SocialLink,
 } from "./components/NavBar/navLinks";
 
-const AppContent: React.FC = () => {
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+// This file is kept for reference but is no longer used in the multi-page site
+// Each page now has its own entry point in the src/pages directory
+
+const App: React.FC = () => {
+  // Check if we're on the home page
+  const isHomePage =
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("index.html");
 
   const navbarProps = {
     navLinks: navLinks as NavLink[],
@@ -30,38 +25,20 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="app-container">
-        {!isHomePage && (
-          <div className="fixed-navbar">
-            <Navbar {...navbarProps} />
-          </div>
-        )}
-        <main
-          className={`main-content ${
-            !isHomePage ? "main-content-with-nav" : ""
-          }`}
-        >
-          <div className="content-container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/film-editor" element={<FilmEditing />} />
-              <Route path="/developer" element={<ComputerScience />} />
-              <Route path="/artist" element={<Artist />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
-          </div>
-        </main>
-      </div>
-    </>
-  );
-};
-
-const App: React.FC = () => {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
+    <div className="app-container">
+      {!isHomePage && (
+        <div className="fixed-navbar">
+          <Navbar {...navbarProps} />
+        </div>
+      )}
+      <main
+        className={`main-content ${!isHomePage ? "main-content-with-nav" : ""}`}
+      >
+        <div className="content-container">
+          <Home />
+        </div>
+      </main>
+    </div>
   );
 };
 

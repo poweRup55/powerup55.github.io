@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/Shared.css";
 import "./Navbar.css";
 import { NavLink, SocialLink } from "./navLinks";
@@ -25,26 +24,16 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHomePage = location.pathname === "/";
-
-  const handleNavigate = (href: string) => {
-    if (href.startsWith("/")) {
-      navigate(href);
-    } else {
-      window.location.href = href;
-    }
-  };
+  const isHomePage =
+    window.location.pathname === "/" ||
+    window.location.pathname === "/index" ||
+    window.location.pathname.endsWith("index.html");
 
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLAnchorElement | HTMLButtonElement>,
-    href: string,
     closeMenu?: boolean
   ) => {
     if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      handleNavigate(href);
       if (closeMenu) setIsMobileMenuOpen(false);
     }
   };
@@ -111,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({
             rel="noopener noreferrer"
             onClick={closeMobileMenuOnClick ? handleCloseMobileMenu : undefined}
             onKeyDown={(e: React.KeyboardEvent<HTMLAnchorElement>) =>
-              handleKeyDown(e, socialLink.href, closeMobileMenuOnClick)
+              handleKeyDown(e, closeMobileMenuOnClick)
             }
           >
             {<socialLink.icon></socialLink.icon>}
@@ -124,15 +113,9 @@ const Navbar: React.FC<NavbarProps> = ({
         <a
           key={navLink.label}
           {...commonProps}
-          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-            if (navLink.href.startsWith("/")) {
-              e.preventDefault();
-              handleNavigate(navLink.href);
-            }
-            if (closeMobileMenuOnClick) handleCloseMobileMenu();
-          }}
+          onClick={closeMobileMenuOnClick ? handleCloseMobileMenu : undefined}
           onKeyDown={(e: React.KeyboardEvent<HTMLAnchorElement>) =>
-            handleKeyDown(e, navLink.href, closeMobileMenuOnClick)
+            handleKeyDown(e, closeMobileMenuOnClick)
           }
         >
           {navLink.label}
@@ -147,7 +130,7 @@ const Navbar: React.FC<NavbarProps> = ({
     >
       {!isHomePage && (
         <button
-          className={"navbar-hamburger"}
+          className="navbar-hamburger"
           aria-label={
             isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
           }
@@ -177,13 +160,6 @@ const Navbar: React.FC<NavbarProps> = ({
             href="/"
             tabIndex={0}
             aria-label="Home"
-            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              handleNavigate("/");
-            }}
-            onKeyDown={(e: React.KeyboardEvent<HTMLAnchorElement>) =>
-              handleKeyDown(e, "/")
-            }
           >
             Home
           </a>
@@ -206,13 +182,9 @@ const Navbar: React.FC<NavbarProps> = ({
               href="/"
               tabIndex={0}
               aria-label="Home"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault();
-                handleNavigate("/");
-                handleCloseMobileMenu();
-              }}
+              onClick={handleCloseMobileMenu}
               onKeyDown={(e: React.KeyboardEvent<HTMLAnchorElement>) =>
-                handleKeyDown(e, "/", true)
+                handleKeyDown(e, true)
               }
               role="menuitem"
             >

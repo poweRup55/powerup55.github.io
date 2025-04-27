@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import MediaCardGrid from "./Project/MediaCardGrid";
 import "./styles/Shared.css";
 import { MediaCardProps } from "./Project/MediaCard";
@@ -22,8 +21,6 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({
   projects,
   onProjectClick,
 }) => {
-  const navigate = useNavigate();
-
   const handleProjectClick = (project: Project): void => {
     if (onProjectClick) {
       onProjectClick(project);
@@ -31,10 +28,14 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({
       if (project.url.startsWith("http")) {
         window.open(project.url, "_blank", "noopener,noreferrer");
       } else {
-        navigate(project.url);
+        // Use clean URLs without .html extension
+        window.location.href = project.url;
       }
     } else {
-      navigate(`/project?title=${encodeURIComponent(project.title)}`);
+      // Handle project links using clean URLs
+      window.location.href = `/project?title=${encodeURIComponent(
+        project.title
+      )}`;
     }
   };
 

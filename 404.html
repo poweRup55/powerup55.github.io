@@ -2,54 +2,104 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/portfolio.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
+    <title>Page Not Found - Yonatan Koritny Portfolio</title>
     <script>
-      // Single Page Apps for GitHub Pages
-      // Handles routing for SPA deployed on GitHub Pages
-      // Modified from https://github.com/rafgraph/spa-github-pages
+      // Handle clean URLs in GitHub Pages
+      (function () {
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/\/$/, ""); // Remove trailing slash if present
+        var pathSegments = cleanPath.split("/");
+        var lastSegment = pathSegments[pathSegments.length - 1];
 
-      // This script takes the current URL and converts the path and query
-      // string into just a query string, then redirects the browser
-      // to the new URL with only a query string and hash fragment.
+        // Don't redirect actual 404s
+        if (lastSegment === "404.html") {
+          return;
+        }
 
-      var pathSegmentsToKeep = 0; // Adjust this depending on your GitHub Pages setup
+        // Check if we're looking for a known page
+        var pages = ["about", "film-editor", "developer", "artist"];
+        if (pages.includes(lastSegment)) {
+          window.location.replace("/" + lastSegment + ".html");
+          return;
+        }
 
-      var l = window.location;
-      l.replace(
-        l.protocol +
-          "//" +
-          l.hostname +
-          (l.port ? ":" + l.port : "") +
-          l.pathname
-            .split("/")
-            .slice(0, 1 + pathSegmentsToKeep)
-            .join("/") +
-          "/?/" +
-          l.pathname
-            .slice(1)
-            .split("/")
-            .slice(pathSegmentsToKeep)
-            .join("/")
-            .replace(/&/g, "~and~") +
-          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-          l.hash
-      );
+        // Handle index
+        if (lastSegment === "" || lastSegment === "index") {
+          window.location.replace("/index.html");
+          return;
+        }
+
+        // If we reach here, it's a genuine 404
+      })();
     </script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .home-button {
+        display: inline-block;
+        background-color: #0066cc;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.2s;
+      }
+
+      .home-button:hover {
+        background-color: #0055aa;
+      }
+
+      .links {
+        margin-top: 2rem;
+      }
+
+      .links a {
+        margin: 0 10px;
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      .links a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <h1>Redirecting...</h1>
-    <p>
-      If you are not redirected automatically,
-      <a id="redirect-link" href="/">click here</a>.
-    </p>
-    <script>
-      document.getElementById("redirect-link").href =
-        window.location.protocol +
-        "//" +
-        window.location.hostname +
-        (window.location.port ? ":" + window.location.port : "") +
-        "/";
-    </script>
+    <h1>Page Not Found</h1>
+    <p>The page you're looking for doesn't exist or has been moved.</p>
+    <a href="/" class="home-button">Go to Home Page</a>
+
+    <div class="links">
+      <a href="/film-editor">Film Editor</a>
+      <a href="/developer">Developer</a>
+      <a href="/artist">Artist</a>
+      <a href="/about">About</a>
+    </div>
   </body>
 </html>

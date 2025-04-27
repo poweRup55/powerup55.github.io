@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Animations.css";
 
 interface OrbitWord {
@@ -20,7 +19,6 @@ interface OrbitStyle extends React.CSSProperties {
 }
 
 const RotatingWords: React.FC = () => {
-  const navigate = useNavigate();
   const orbitRadius: number = 250;
   const [isMobileView, setIsMobileView] = useState<boolean>(
     window.innerWidth < 750
@@ -38,7 +36,8 @@ const RotatingWords: React.FC = () => {
   }, []);
 
   const handleWordClick = (path: string): void => {
-    navigate(path);
+    // Use clean URLs
+    window.location.href = path;
   };
 
   const handleWordKeyDown = (
