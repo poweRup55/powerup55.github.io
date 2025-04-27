@@ -8,21 +8,19 @@ import {
   FaGraduationCap,
   FaCertificate,
   FaUsers,
-  // FaEnvelope, // Not used
-  // FaGithub, // Not used
-  // FaLinkedin, // Not used
 } from "react-icons/fa";
-import MediaCardGrid from "../MediaCardGrid";
-import { MediaCardProps } from "../MediaCard"; // Corrected import
+import MediaCardGrid from "../Project/MediaCardGrid";
+import { MediaCardProps } from "../Project/MediaCard";
+import ProjectGallery from "../Project/ProjectGallery";
+import { Project } from "../Project/ProjectGallery";
+import { getFallbackImage } from "../../utils/videoUtils";
 
-// Define the structure for the Computer Science card data
 interface CSCardData {
   title: string;
   icon: React.ReactNode;
   description: string;
 }
 
-// Define the card data with the CSCardData type
 const csCards: CSCardData[] = [
   {
     title: "About Me",
@@ -62,18 +60,40 @@ const csCards: CSCardData[] = [
   },
 ];
 
+const codeProjects: Project[] = [
+  {
+    title: "React Component Library",
+    description:
+      "A collection of reusable UI components built with React and TypeScript.",
+    url: "https://github.com/yonatankoritny/react-components",
+    image: getFallbackImage("DEVELOPER"),
+  },
+  {
+    title: "Data Visualization Tool",
+    description:
+      "Interactive data visualization web application using D3.js and React.",
+    url: "https://github.com/yonatankoritny/data-viz-tool",
+    image: getFallbackImage("DEVELOPER"),
+  },
+  {
+    title: "Algorithm Playground",
+    description:
+      "Implementation of various algorithms and data structures in TypeScript.",
+    url: "https://github.com/yonatankoritny/algo-playground",
+    image: getFallbackImage("DEVELOPER"),
+  },
+];
+
 const ComputerScience: React.FC = () => {
-  // Map CSCardData to MediaCardProps
   const mediaCards: MediaCardProps[] = csCards.map((card) => ({
     title: card.title,
     description: card.description,
     icon: card.icon,
-    className: "cs-media-card", // Apply specific class name
+    className: "cs-media-card",
   }));
 
   return (
     <div className="content-page cs-portfolio-page">
-      {/* Profile image placeholder */}
       <div className="cs-profile-image-wrapper">
         <div className="cs-profile-image">
           <FaUser size={64} color="#00ff99" />
@@ -87,6 +107,9 @@ const ComputerScience: React.FC = () => {
         Computer Science
       </h1>
       <MediaCardGrid cards={mediaCards} className="cs-media-card-grid" />
+
+      <h2 className="content-page-title cs-projects-title">My Projects</h2>
+      <ProjectGallery title="" projects={codeProjects} />
     </div>
   );
 };

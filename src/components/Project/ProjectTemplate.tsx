@@ -1,33 +1,35 @@
 import React from "react";
 import "./Project.css";
 
-// Define the props interface for ProjectTemplate
 interface ProjectTemplateProps {
   title: string;
   description: string;
-  popupUrl: string;
-  buttonText?: string; // Optional button text
+  url: string;
+  buttonText?: string;
+  isExternalLink?: boolean;
 }
 
 const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
   title,
   description,
-  popupUrl,
-  buttonText = "Open Demo", // Default value for optional prop
+  url,
+  buttonText = "View Project",
+  isExternalLink = false,
 }) => {
-  // Handler function to open the popup
-  const handleOpenPopup = (): void => {
-    // Consider adding error handling or checks for popup blockers
-    window.open(popupUrl, "_blank", "width=600,height=600,noopener,noreferrer");
+  const handleProjectClick = (): void => {
+    if (isExternalLink) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = url;
+    }
   };
 
-  // Handler for keydown event on the button for accessibility
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLButtonElement>
   ): void => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      handleOpenPopup();
+      handleProjectClick();
     }
   };
 
@@ -37,9 +39,9 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
       <p className="project-template-description">{description}</p>
       <button
         className="project-template-button"
-        onClick={handleOpenPopup}
-        onKeyDown={handleKeyDown} // Add keydown handler
-        type="button" // Explicitly set button type
+        onClick={handleProjectClick}
+        onKeyDown={handleKeyDown}
+        type="button"
       >
         {buttonText}
       </button>

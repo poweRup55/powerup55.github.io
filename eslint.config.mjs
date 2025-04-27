@@ -13,10 +13,10 @@ export default [
   {
     settings: {
       react: {
-        version: "detect", // Automatically detect the React version
+        version: "detect",
       },
     },
-    files: ["**/*.{ts,tsx}"], // Apply React rules only to TS/TSX files
+    files: ["**/*.{ts,tsx}"],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: { jsx: true },
@@ -32,14 +32,13 @@ export default [
         "warn",
         { allowConstantExport: true },
       ],
-      // Add or override rules specific to TypeScript React here
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
-      "react/react-in-jsx-scope": "off", // Not needed with React 17+ JSX transform
-      "react/prop-types": "off", // Disable prop-types rule as we use TypeScript types
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
     },
   },
-  { ignores: ["dist", "node_modules", "eslint.config.mjs"] }, // Ignore build output, node_modules, and the config file itself
+  { ignores: ["dist", "node_modules", "eslint.config.mjs"] },
 ];

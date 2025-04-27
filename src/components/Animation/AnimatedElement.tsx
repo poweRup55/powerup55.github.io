@@ -1,11 +1,10 @@
 import React, { useState, useEffect, ReactNode } from "react";
 import "./Animations.css";
 
-// Define the props interface for AnimatedElement
 interface AnimatedElementProps {
-  children: ReactNode; // Type children explicitly
-  delay?: number; // Optional delay
-  className?: string; // Optional className
+  children: ReactNode;
+  delay?: number;
+  className?: string;
 }
 
 const AnimatedElement: React.FC<AnimatedElementProps> = ({
@@ -17,17 +16,15 @@ const AnimatedElement: React.FC<AnimatedElementProps> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), delay);
-    // Clear the timer on component unmount or if delay changes
     return () => clearTimeout(timer);
   }, [delay]);
 
-  // Construct class names conditionally
   const combinedClassName = [
     "animated-element",
     className,
     isVisible ? "visible" : "",
   ]
-    .filter(Boolean) // Remove any empty strings
+    .filter(Boolean)
     .join(" ");
 
   return (

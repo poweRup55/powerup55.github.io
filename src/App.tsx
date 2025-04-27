@@ -9,67 +9,46 @@ import "./index.css";
 import Home from "./components/Home/Home";
 import FilmEditing from "./components/About/FilmEditing";
 import ComputerScience from "./components/About/ComputerScience";
-import ProjectDemo from "./components/Project/ProjectDemo";
-// import PopupDemo from "./components/Modal/PopupDemo"; // Assuming PopupDemo might not be used directly here or needs review
+import Artist from "./components/About/Artist";
 import About from "./components/About/About";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar/Navbar";
 import {
   navLinks,
   socialLinks,
   NavLink,
   SocialLink,
-} from "./components/navLinks"; // Import types
+} from "./components/NavBar/navLinks";
 
 const AppContent: React.FC = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  // Define the props type for Navbar explicitly if needed, otherwise inferred
-  // Assuming NavbarProps type is defined within Navbar.tsx or imported
-  // For now, using the imported types NavLink and SocialLink for clarity
   const navbarProps = {
-    navLinks: navLinks as NavLink[], // Cast if necessary, or ensure navLinks matches type
-    socialLinks: socialLinks as SocialLink[], // Cast if necessary
-    showHome: true, // Assuming showHome is a boolean prop
+    navLinks: navLinks as NavLink[],
+    socialLinks: socialLinks as SocialLink[],
+    showHome: true,
   };
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          width: "100%",
-        }}
-      >
+      <div className="app-container">
         {!isHomePage && (
-          <div
-            style={{
-              width: "100%",
-              position: "fixed", // Type assertion for CSS properties
-              top: 0,
-              left: 0,
-              zIndex: 100,
-            }}
-          >
-            {/* Pass structured props */}
+          <div className="fixed-navbar">
             <Navbar {...navbarProps} />
           </div>
         )}
         <main
-          className="main-content"
-          style={{ marginTop: !isHomePage ? "70px" : 0 }} // Ensure CSS properties are valid
+          className={`main-content ${
+            !isHomePage ? "main-content-with-nav" : ""
+          }`}
         >
           <div className="content-container">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/film-editor" element={<FilmEditing />} />
               <Route path="/developer" element={<ComputerScience />} />
-              <Route path="/artist" element={<ProjectDemo />} />
+              <Route path="/artist" element={<Artist />} />
               <Route path="/about" element={<About />} />
-              {/* <Route path="/popup-demo" element={<PopupDemo />} /> */}{" "}
-              {/* Example if PopupDemo route is needed */}
             </Routes>
           </div>
         </main>

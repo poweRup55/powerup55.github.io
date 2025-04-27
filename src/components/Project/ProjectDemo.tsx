@@ -1,33 +1,34 @@
 import React from "react";
-import ProjectGallery from "../ProjectGallery";
+import ProjectGallery from "./ProjectGallery";
 import "./Project.css";
 import "../styles/Shared.css";
-// Corrected import for the Project interface
-import { Project } from "../ProjectGallery"; // Adjust path if needed
+import { Project } from "./ProjectGallery";
+import { getFallbackImage } from "../../utils/videoUtils";
 
-// Type the demoProjects array using the Project interface
 const demoProjects: Project[] = [
   {
     title: "Demo Project",
     description:
-      "This is a demo of the reusable project template. Click to open a popup window.",
-    // image: "path/to/image.jpg", // Add image if available
+      "This is a demo of the reusable project template. Click to view the GitHub repository.",
+    url: "https://github.com/yonatankoritny/demo-project",
+    image: getFallbackImage("DEVELOPER"),
   },
   {
     title: "Project Alpha",
-    description: "Alpha project popup window.",
-    // image: "path/to/alpha.jpg",
+    description: "Alpha project with complete source code on GitHub.",
+    url: "https://github.com/yonatankoritny/project-alpha",
+    image: getFallbackImage("DEVELOPER"),
   },
   {
     title: "Project Beta",
-    description: "Beta project popup window.",
-    // image: "path/to/beta.jpg",
+    description: "Beta project repository with documentation and examples.",
+    url: "https://github.com/yonatankoritny/project-beta",
+    image: getFallbackImage("DEVELOPER"),
   },
 ];
 
-// Type the component as React.FC
 const ProjectDemo: React.FC = () => (
-  <ProjectGallery title="Project Demos" projects={demoProjects} />
+  <ProjectGallery title="Developer Projects" projects={demoProjects} />
 );
 
 export default ProjectDemo;

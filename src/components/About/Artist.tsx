@@ -14,35 +14,35 @@ interface EnhancedProject extends Project {
   thumbnailLoaded?: boolean;
 }
 
-const initialFilmProjects: EnhancedProject[] = [
+const initialArtProjects: EnhancedProject[] = [
   {
-    title: "Commercial Project",
+    title: "Visual Arts Project",
     description:
-      "A commercial project showcasing brand storytelling with creative visual techniques.",
-    image: getFallbackImage("FILM"),
-    url: "https://player.vimeo.com/video/837674779",
+      "An experimental visual arts project exploring color and movement.",
+    image: getFallbackImage("ARTIST"),
+    url: "https://player.vimeo.com/video/682869795",
   },
   {
-    title: "Documentary Short",
+    title: "Installation Art",
     description:
-      "A short documentary exploring the intersection of art and technology.",
-    image: getFallbackImage("FILM"),
-    url: "https://player.vimeo.com/video/76979871",
+      "A multimedia installation combining technology and traditional art forms.",
+    image: getFallbackImage("ARTIST"),
+    url: "https://player.vimeo.com/video/378214351",
   },
   {
-    title: "Music Video",
+    title: "Digital Sculpture",
     description:
-      "An innovative music video with synchronized visual effects and dynamic transitions.",
-    image: getFallbackImage("FILM"),
-    url: "https://player.vimeo.com/video/175596765",
+      "Digital sculpture exploring the intersection of technology and physical form.",
+    image: getFallbackImage("ARTIST"),
+    url: "https://player.vimeo.com/video/435989667",
   },
 ];
 
-const FilmEditing: React.FC = () => {
+const Artist: React.FC = () => {
   const [selectedProject, setSelectedProject] =
     useState<EnhancedProject | null>(null);
   const [projects, setProjects] =
-    useState<EnhancedProject[]>(initialFilmProjects);
+    useState<EnhancedProject[]>(initialArtProjects);
 
   useEffect(() => {
     const loadThumbnails = async () => {
@@ -93,7 +93,7 @@ const FilmEditing: React.FC = () => {
   return (
     <>
       <ProjectGallery
-        title="Film and Editing"
+        title="Art Projects"
         projects={projects}
         onProjectClick={handleProjectClick}
       />
@@ -119,4 +119,4 @@ const FilmEditing: React.FC = () => {
   );
 };
 
-export default FilmEditing;
+export default Artist;
