@@ -13,10 +13,10 @@ export default defineConfig({
     assetsDir: "assets",
     rollupOptions: {
       output: {
-        manualChunks: undefined, // Ensures proper bundling
+        manualChunks: undefined,
         chunkFileNames: "assets/[name]-[hash].js",
         entryFileNames: "assets/[name]-[hash].js",
-      }
+      },
     },
   },
 });
