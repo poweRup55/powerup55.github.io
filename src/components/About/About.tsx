@@ -8,7 +8,7 @@ const About: React.FC = () => (
     <div className="cs-profile-image-wrapper">
       <img
         className="cs-profile-image"
-        src="src/components/images/yonatan_koritny_front_img.jpg"
+        src="/yonatan_koritny_front_img.jpg"
         alt="Yonatan Koritny profile"
       />
       <div className="cs-profile-name">Yonatan Koritny</div>
