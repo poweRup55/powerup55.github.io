@@ -10,6 +10,8 @@ import {
   NavLink,
   SocialLink,
 } from "../components/NavBar/navLinks";
+import Footer from "../components/Footer/Footer";
+import "../components/Footer/Footer.css";
 
 // Update page metadata
 updatePageMetadata();
@@ -34,6 +36,7 @@ if (rootElement) {
             <FilmEditing />
           </div>
         </main>
+        <Footer />
       </div>
     </React.StrictMode>
   );

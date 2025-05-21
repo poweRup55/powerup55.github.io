@@ -16,26 +16,41 @@ interface EnhancedProject extends Project {
 
 const initialArtProjects: EnhancedProject[] = [
   {
-    title: "Visual Arts Project",
-    description:
-      "An experimental visual arts project exploring color and movement.",
-    image: getFallbackImage("ARTIST"),
-    url: "https://player.vimeo.com/video/682869795",
+    title: "Society of Spectacles - Yonatan Koritny",
+    description: "Experimental short film exploring visual culture.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/731561394",
   },
   {
-    title: "Installation Art",
-    description:
-      "A multimedia installation combining technology and traditional art forms.",
-    image: getFallbackImage("ARTIST"),
-    url: "https://player.vimeo.com/video/378214351",
+    title: "I WISH - Yehonatan Koritny",
+    description: "Short poetic video work.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/731561698",
   },
-  {
-    title: "Digital Sculpture",
-    description:
-      "Digital sculpture exploring the intersection of technology and physical form.",
-    image: getFallbackImage("ARTIST"),
-    url: "https://player.vimeo.com/video/435989667",
-  },
+    {
+      title: "Love - Yonatan Koritny - Submission Journal",
+      description: "Short film about love.",
+      image: getFallbackImage("FILM"),
+      url: "https://player.vimeo.com/video/775958232",
+    },
+    {
+      title: "Chronicle Of The Middle East - Yonatan Koritny",
+      description: "Documentary about the Middle East.",
+      image: getFallbackImage("FILM"),
+      url: "https://player.vimeo.com/video/846269431",
+    },
+    {
+      title: "Bari and Ray at the Time of Painting - Yonatan Koritny",
+      description: "Short film about painting and creativity.",
+      image: getFallbackImage("FILM"),
+      url: "https://player.vimeo.com/video/731560581",
+    },
+    {
+      title: "And Then We Became Sad",
+      description: "Short film.",
+      image: getFallbackImage("FILM"),
+      url: "https://player.vimeo.com/video/697717442",
+    },
 ];
 
 const Artist: React.FC = () => {

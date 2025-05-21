@@ -10,6 +10,8 @@ import {
   NavLink,
   SocialLink,
 } from "../components/NavBar/navLinks";
+import Footer from "../components/Footer/Footer";
+import "../components/Footer/Footer.css";
 
 // Update page metadata
 updatePageMetadata();
@@ -31,9 +33,13 @@ if (rootElement) {
         </div>
         <main className="main-content main-content-with-nav">
           <div className="content-container">
+            <h1 className="content-page-title" tabIndex={0}>
+              Developer Portfolio
+            </h1>
             <ComputerScience />
           </div>
         </main>
+        <Footer />
       </div>
     </React.StrictMode>
   );

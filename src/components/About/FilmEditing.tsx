@@ -14,38 +14,81 @@ interface EnhancedProject extends Project {
   thumbnailLoaded?: boolean;
 }
 
-const initialFilmProjects: EnhancedProject[] = [
+const filmEditorProjects: EnhancedProject[] = [
   {
-    title: "Commercial Project",
-    description:
-      "A commercial project showcasing brand storytelling with creative visual techniques.",
+    title: '"Kiki": Award-Winning Feature Documentary',
+    description: "Trailer for an award-winning feature-length documentary film.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/1057333638",
+  },
+  {
+    title: '"Pair or Odd": Short Documentary',
+    description: "Documentary film at Bezalel.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/691631811",
+  },
+  {
+      title: "\"Don't Be a Fish\":Student Short Film",
+      description: "Student short film.",
+      image: getFallbackImage("FILM"),
+      url: "https://player.vimeo.com/video/775973776",
+  },
+];
+
+const promoEditorProjects: EnhancedProject[] = [
+  {
+    title: "Shakuf & The Seventh Eye",
+    description: "Video for Shakuf & The Seventh Eye.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/1057297015",
+  },
+  {
+    title: "Labor Party Promo",
+    description: "Promotional video for the Labor Party.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/1057304439",
+  },
+  {
+    title: "Weekly Recap Video",
+    description: "Weekly recap video.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/1057303842",
+  },
+  {
+    title: "Ort Hatzor HaGlilit Promo",
+    description: "Promotional video for Ort Hatzor HaGlilit School.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/1057304254",
+  },
+  {
+    title: "Sample Wedding Video",
+    description: "Sample wedding video.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/1057302984",
+  },
+  {
+    title: "The Secular Yeshiva",
+    description: "Short promotional video about the secular yeshiva.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/837674779",
-  },
-  {
-    title: "Documentary Short",
-    description:
-      "A short documentary exploring the intersection of art and technology.",
-    image: getFallbackImage("FILM"),
-    url: "https://player.vimeo.com/video/76979871",
-  },
-  {
-    title: "Music Video",
-    description:
-      "An innovative music video with synchronized visual effects and dynamic transitions.",
-    image: getFallbackImage("FILM"),
-    url: "https://player.vimeo.com/video/175596765",
   },
 ];
 
 const FilmEditing: React.FC = () => {
   const [selectedProject, setSelectedProject] =
     useState<EnhancedProject | null>(null);
-  const [projects, setProjects] =
-    useState<EnhancedProject[]>(initialFilmProjects);
+  const [filmProjects, setFilmProjects] = useState<EnhancedProject[]>(
+    filmEditorProjects
+  );
+  const [promoProjects, setPromoProjects] = useState<EnhancedProject[]>(
+    promoEditorProjects
+  );
 
   useEffect(() => {
-    const loadThumbnails = async () => {
+    const loadThumbnails = async (
+      projects: EnhancedProject[],
+      setProjects: React.Dispatch<React.SetStateAction<EnhancedProject[]>>
+    ) => {
       const updatedProjects = await Promise.all(
         projects.map(async (project) => {
           if (!project.thumbnailLoaded && project.url) {
@@ -70,11 +113,11 @@ const FilmEditing: React.FC = () => {
           return project;
         })
       );
-
       setProjects(updatedProjects);
     };
-
-    loadThumbnails();
+    loadThumbnails(filmProjects, setFilmProjects);
+    loadThumbnails(promoProjects, setPromoProjects);
+    // eslint-disable-next-line
   }, []);
 
   const handleProjectClick = (project: Project): void => {
@@ -92,12 +135,18 @@ const FilmEditing: React.FC = () => {
 
   return (
     <>
-      <ProjectGallery
-        title="Film and Editing"
-        projects={projects}
-        onProjectClick={handleProjectClick}
-      />
-
+      <div>
+        <ProjectGallery
+          title="Films Editor"
+          projects={filmProjects}
+          onProjectClick={handleProjectClick}
+        />
+        <ProjectGallery
+          title="Promotional Videos Editor"
+          projects={promoProjects}
+          onProjectClick={handleProjectClick}
+        />
+      </div>
       <Modal isOpen={!!selectedProject} onClose={handleCloseModal}>
         {selectedProject && (
           <div className="film-video-container">

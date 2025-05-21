@@ -1,6 +1,6 @@
 import React from "react";
 import { IconType } from "react-icons";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaVimeo } from "react-icons/fa";
 
 export interface NavLink {
   label: string;
@@ -21,6 +21,7 @@ export const navLinks: NavLink[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { icon: FaFacebook, href: "https://facebook.com/", label: "Facebook" },
-  { icon: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
+  { icon: FaInstagram, href: "https://www.instagram.com/yonatan_koritny/", label: "Instagram" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/in/yonatan-koritny/", label: "Linkedin" },
+  { icon: FaVimeo, href: "https://vimeo.com/yonatankoritny", label: "Vimeo" },
 ];

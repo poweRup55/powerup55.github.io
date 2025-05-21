@@ -2,12 +2,9 @@ import React from "react";
 import "./About.css";
 import "../styles/Shared.css";
 import {
-  FaUser,
   FaCode,
   FaBriefcase,
-  FaGraduationCap,
-  FaCertificate,
-  FaUsers,
+  FaGraduationCap
 } from "react-icons/fa";
 import MediaCardGrid from "../Project/MediaCardGrid";
 import { MediaCardProps } from "../Project/MediaCard";
@@ -23,63 +20,38 @@ interface CSCardData {
 
 const csCards: CSCardData[] = [
   {
-    title: "About Me",
-    icon: <FaUser size={32} color="#00ff99" />,
-    description:
-      "Hi! I'm Yonatan Koritny, a passionate software engineer who loves building things that make a difference. I thrive on solving complex problems and collaborating with others to bring ideas to life. My journey combines a dual degree in Computer Science and Media, giving me a unique perspective on technology and design.",
-  },
-  {
     title: "Skills & Technologies",
     icon: <FaCode size={32} color="#00ff99" />,
     description:
-      "Languages: Python, C++, C#, C, JavaScript, TypeScript, Java.\nFrameworks: React, Node.js, RxJS, REST, HTML, CSS.\nTools: Git, Linux, Unity, Rhino, GitHub Actions, Jest.",
+      "Languages: JavaScript, TypeScript, Python, Java, C++, C, C#.\nWeb: Node.js, REST APIs, RxJS, HTML, CSS.\nOther Tools: Git, Linux, GitHub Actions, Jest, CI/CD.\nCreative/Other: Unity, OpenCV, Figma, pandas, numpy.",
   },
   {
     title: "Professional Experience",
     icon: <FaBriefcase size={32} color="#00ff99" />,
     description:
-      "Frontend Developer @ Joyned (Sep 2023 - May 2025):\n- Built scalable web applications used by thousands.\n- Automated workflows with Python & JavaScript.\n- Collaborated with cross-functional teams to deliver impactful products.",
+      "Software Developer, Joyned\n(Sep 2023 - May 2025)\n• Built and scaled production-grade web applications used by millions.\n• Designed real-time collaboration tools using TypeScript, RxJS, and Web APIs.\n• Wrote internal tools and automation scripts in Python and JavaScript.\n• Worked closely with product managers and backend engineers to ship features.\n• Improved CI/CD workflows, refactored legacy code, and led quality initiatives.",
   },
   {
     title: "Education",
     icon: <FaGraduationCap size={32} color="#00ff99" />,
     description:
-      "Dual Degree: Computer Science & Media (Oct 2018 - Aug 2024)\n- B.Sc. Computer Science, Hebrew University\n- BFA Screen-Based Arts, Bezalel Academy",
-  },
-  {
-    title: "Certifications & Awards",
-    icon: <FaCertificate size={32} color="#00ff99" />,
-    description:
-      "🏆 2nd Place, Facebook Hackathon\nCertified in Advanced Python (Coursera)",
-  },
-  {
-    title: "Open Source & Community",
-    icon: <FaUsers size={32} color="#00ff99" />,
-    description:
-      "Contributor to open source projects on GitHub.\nActive member of local tech meetups and hackathons.",
+      "Dual-Degree in Computer Science & Media (Oct 2018 - Aug 2024)\nB.Sc. Computer Science, Hebrew University\nBFA Screen-Based Arts, Bezalel Academy",
   },
 ];
 
 const codeProjects: Project[] = [
   {
-    title: "React Component Library",
+    title: "The Conspiracy Theorist",
     description:
-      "A collection of reusable UI components built with React and TypeScript.",
-    url: "https://github.com/yonatankoritny/react-components",
+      "Built a machine learning model to classify user beliefs from Reddit using Python. Used NLP, clustering, and data visualization tools.",
+    url: "https://github.com/poweRup55/The-Conspiracy-Theorist",
     image: getFallbackImage("DEVELOPER"),
   },
   {
-    title: "Data Visualization Tool",
+    title: "STREAM",
     description:
-      "Interactive data visualization web application using D3.js and React.",
-    url: "https://github.com/yonatankoritny/data-viz-tool",
-    image: getFallbackImage("DEVELOPER"),
-  },
-  {
-    title: "Algorithm Playground",
-    description:
-      "Implementation of various algorithms and data structures in TypeScript.",
-    url: "https://github.com/yonatankoritny/algo-playground",
+      "Developed an interactive installation using OpenCV and Python. Combined real-time audio-visual feedback with creative logic.",
+    url: "https://github.com/poweRup55/STREAM",
     image: getFallbackImage("DEVELOPER"),
   },
 ];
@@ -94,21 +66,8 @@ const ComputerScience: React.FC = () => {
 
   return (
     <div className="content-page cs-portfolio-page">
-      <div className="cs-profile-image-wrapper">
-        <div className="cs-profile-image">
-          <FaUser size={64} color="#00ff99" />
-        </div>
-        <div className="cs-profile-name">Yonatan Koritny</div>
-        <div className="cs-profile-role">
-          Software Engineer & Creative Technologist
-        </div>
-      </div>
-      <h1 className="content-page-title cs-portfolio-title">
-        Computer Science
-      </h1>
       <MediaCardGrid cards={mediaCards} className="cs-media-card-grid" />
-
-      <h2 className="content-page-title cs-projects-title">My Projects</h2>
+      <h2 className="content-page-title cs-projects-title">Projects</h2>
       <ProjectGallery title="" projects={codeProjects} />
     </div>
   );

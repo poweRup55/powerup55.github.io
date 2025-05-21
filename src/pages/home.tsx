@@ -3,14 +3,9 @@ import ReactDOM from "react-dom/client";
 import "../index.css";
 import Home from "../components/Home/Home";
 import { updatePageMetadata } from "../utils/pageUtils";
-import {
-  navLinks,
-  socialLinks,
-  NavLink,
-  SocialLink,
-} from "../components/NavBar/navLinks";
+import Footer from "../components/Footer/Footer";
+import "../components/Footer/Footer.css";
 
-// Update page metadata
 updatePageMetadata();
 
 const rootElement = document.getElementById("root");
@@ -24,6 +19,7 @@ if (rootElement) {
             <Home />
           </div>
         </main>
+        <Footer />
       </div>
     </React.StrictMode>
   );

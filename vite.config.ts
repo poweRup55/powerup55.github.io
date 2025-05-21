@@ -1,18 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { resolve } from "path";
-import fs from "fs";
 
 // Create directory-based output for clean URLs
 const generateCleanUrlOutputs = () => {
-  const input = {
-    main: resolve(__dirname, "index.html"),
+  const input: Record<string, string> = {
+    main: "index.html",
   };
 
   // Add pages
   const pages = ["about", "film-editor", "developer", "artist"];
   pages.forEach((page) => {
-    input[page] = resolve(__dirname, `${page}.html`);
+    input[page] = `${page}.html`;
   });
 
   return input;

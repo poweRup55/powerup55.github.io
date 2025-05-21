@@ -24,6 +24,14 @@ const MediaCard: React.FC<MediaCardProps> = ({
     }
   };
 
+  const renderDescription = (desc: string) =>
+    desc.split("\n").map((line, idx, arr) => (
+      <React.Fragment key={idx}>
+        {line}
+        {idx < arr.length - 1 && <br />}
+      </React.Fragment>
+    ));
+
   return (
     <div
       className={`media-card ${className}`.trim()}
@@ -42,7 +50,9 @@ const MediaCard: React.FC<MediaCardProps> = ({
       {icon && <div className="media-card-icon">{icon}</div>}
       <div className="media-card-content">
         <div className="media-card-title">{title}</div>
-        <div className="media-card-description">{description}</div>
+        <div className="media-card-description">
+          {renderDescription(description)}
+        </div>
       </div>
     </div>
   );

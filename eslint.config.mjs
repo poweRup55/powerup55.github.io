@@ -1,32 +1,30 @@
 import js from "@eslint/js";
 import globals from "globals";
-import tseslint from "typescript-eslint";
-import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
+import parser from "@typescript-eslint/parser";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-  { languageOptions: { globals: globals.browser } },
-  ...tseslint.configs.recommended,
-  pluginReactConfig,
+  js.configs.recommended,
   {
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
+      parser,
       parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
         ecmaFeatures: { jsx: true },
       },
+      globals: globals.browser,
     },
     plugins: {
+      "@typescript-eslint": tsPlugin,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
     },
     rules: {
+      ...tsPlugin.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "warn",
@@ -38,6 +36,9 @@ export default [
       ],
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+    },
+    settings: {
+      react: { version: "detect" },
     },
   },
   { ignores: ["dist", "node_modules", "eslint.config.mjs"] },

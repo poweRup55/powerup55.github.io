@@ -1,7 +1,5 @@
 /* Shared content-page layout and media card styles */
 .content-page {
-  min-height: 100vh;
-  width: 100vw;
   background: var(--background);
   color: var(--text);
   display: flex;
@@ -22,7 +20,7 @@
 
 .media-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
   width: 90vw;
   max-width: 1200px;
