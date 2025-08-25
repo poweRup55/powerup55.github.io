@@ -17,7 +17,6 @@
   letter-spacing: -2px;
   color: var(--primary);
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
 }
 
 .page-subtitle-custom {
@@ -62,7 +61,6 @@
   font-weight: 700;
   font-size: 1.1rem;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(244, 208, 63, 0.15);
   transition: background 0.2s, color 0.2s;
 }
 
@@ -172,7 +170,6 @@
   left: 0;
   width: 100vw;
   background: var(--background);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   padding: 1.5rem 0 1.5rem 0;
   z-index: 110;
   animation: navbarDropdownFade 0.2s;

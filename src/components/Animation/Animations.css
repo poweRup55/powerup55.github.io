@@ -90,7 +90,6 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(244, 208, 63, 0.15);
   transition: background 0.2s, transform 0.2s;
   width: 80%;
   max-width: 250px;

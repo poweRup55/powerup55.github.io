@@ -1,14 +1,13 @@
 :root {
-  --primary: #fff;
-  --accent: #E2B0AB;
-  --background: #2E4057;
-  --sidebar: #1f5288;
-  --surface: #1f5288;
-  --text: #fff;
-  --text-muted: #dfdfdf;
+  --primary: #222234;
+  --accent: #222234;
+  --background: #f6f5f3;
+  --sidebar: #faf3eb;
+  --surface: #faf3eb;
+  --text: #222234;
+  --text-muted: #222234;
   --border-radius: 18px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -60,7 +59,7 @@ button {
   cursor: pointer;
   transition: var(--transition);
   font-weight: 600;
-  box-shadow: var(--shadow-lg);
+
 }
 
 button:hover {
@@ -89,7 +88,7 @@ button:hover {
   color: var(--background);
   padding: 4rem 3rem 3rem 3rem;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  box-shadow: var(--shadow-lg);
+
   margin-bottom: 2.5rem;
   position: relative;
 }
@@ -121,7 +120,7 @@ section {
   background: var(--surface);
   color: var(--text);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-lg);
+
   padding: 2rem 2.5rem;
   margin: 1rem;
 }

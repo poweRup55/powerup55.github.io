@@ -10,10 +10,10 @@
   justify-content: center;
   z-index: 9999;
 }
+
 .modal-content {
   background: var(--background);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-lg);
   padding: 2rem 2.5rem;
   position: relative;
   min-width: 320px;
@@ -21,6 +21,7 @@
   max-height: 90vh;
   overflow-y: auto;
 }
+
 .close-btn {
   position: absolute;
   top: 12px;
@@ -32,6 +33,7 @@
   cursor: pointer;
   transition: color 0.2s;
 }
+
 .close-btn:hover {
   color: var(--primary);
 }
