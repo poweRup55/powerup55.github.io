@@ -1,11 +1,11 @@
 :root {
-  --primary: #e8b86d;
-  --accent: #d4a574;
-  --background: #2c3142;
-  --sidebar: #363b4d;
-  --surface: #3d4354;
+  --primary: #fff;
+  --accent: #E2B0AB;
+  --background: #2E4057;
+  --sidebar: #1f5288;
+  --surface: #1f5288;
   --text: #fff;
-  --text-muted: #fff;
+  --text-muted: #dfdfdf;
   --border-radius: 18px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
@@ -52,7 +52,7 @@ h3 {
 
 button {
   background: var(--primary);
-  color: #1a1d26;
+  color: var(--background);
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -65,7 +65,7 @@ button {
 
 button:hover {
   background: var(--accent);
-  color: #1a1d26;
+  color: var(--background);
 }
 
 #root {
@@ -86,7 +86,7 @@ button:hover {
 
 .hero-section {
   background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%);
-  color: #1a1d26;
+  color: var(--background);
   padding: 4rem 3rem 3rem 3rem;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow-lg);
@@ -98,13 +98,13 @@ button:hover {
   font-size: 3.2rem;
   font-weight: 900;
   margin-bottom: 1.2rem;
-  color: #1a1d26;
+  color: var(--background);
   letter-spacing: -2px;
 }
 
 .hero-section p {
   font-size: 1.35rem;
-  color: #2a2f3e;
+  color: var(--sidebar);
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
