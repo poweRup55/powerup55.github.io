@@ -11,19 +11,19 @@ const demoProjects: Project[] = [
     description:
       "This is a demo of the reusable project template. Click to view the GitHub repository.",
     url: "https://github.com/yonatankoritny/demo-project",
-    image: getFallbackImage("DEVELOPER"),
+    image: getFallbackImage("GENERIC"),
   },
   {
     title: "Project Alpha",
     description: "Alpha project with complete source code on GitHub.",
     url: "https://github.com/yonatankoritny/project-alpha",
-    image: getFallbackImage("DEVELOPER"),
+    image: getFallbackImage("FILM"),
   },
   {
     title: "Project Beta",
     description: "Beta project repository with documentation and examples.",
     url: "https://github.com/yonatankoritny/project-beta",
-    image: getFallbackImage("DEVELOPER"),
+    image: getFallbackImage("GENERIC"),
   },
 ];
 

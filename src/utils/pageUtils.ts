@@ -25,10 +25,8 @@ export const getPageTitle = (pageName: string): string => {
       return "About - Yonatan Koritny Portfolio";
     case "film-editor":
       return "Film Editor - Yonatan Koritny Portfolio";
-    case "developer":
-      return "Developer - Yonatan Koritny Portfolio";
-    case "artist":
-      return "Artist - Yonatan Koritny Portfolio";
+    case "art-projects":
+      return "Art Projects - Yonatan Koritny Portfolio";
     default:
       return "Yonatan Koritny Portfolio";
   }

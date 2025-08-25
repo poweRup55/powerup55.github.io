@@ -32,13 +32,11 @@
 
 @keyframes orbitWord {
   0% {
-    transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius)))
-      rotate(calc(-1 * var(--angle)));
+    transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
   }
+
   100% {
-    transform: rotate(calc(var(--angle) + 360deg))
-      translateY(calc(-1 * var(--radius)))
-      rotate(calc(-1 * var(--angle) - 360deg));
+    transform: rotate(calc(var(--angle) + 360deg)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle) - 360deg));
   }
 }
 
@@ -68,6 +66,7 @@
 .orbit-word:focus {
   outline: none;
 }
+
 .orbit-word:focus .orbit-word-text {
   text-decoration: underline;
 }
@@ -83,7 +82,7 @@
 
 .static-word-button {
   background: var(--primary);
-  color: #181c24;
+  color: #1a1d26;
   padding: 0.6rem 1.8rem;
   border-radius: 2rem;
   font-weight: 600;
@@ -91,7 +90,7 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 2px 8px rgba(244, 208, 63, 0.15);
   transition: background 0.2s, transform 0.2s;
   width: 80%;
   max-width: 250px;
@@ -111,6 +110,7 @@
     min-height: auto;
     height: auto;
   }
+
   .center-name {
     position: relative;
     transform: none;
@@ -118,9 +118,11 @@
     left: auto;
     font-size: 2.8rem;
   }
+
   .orbit-container {
     display: none;
   }
+
   .static-words-container {
     display: flex;
   }
@@ -134,9 +136,11 @@
     transform: translate(-50%, -50%);
     margin-bottom: 0;
   }
+
   .static-words-container {
     display: none;
   }
+
   .orbit-container {
     display: flex;
   }

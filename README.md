@@ -1,6 +1,6 @@
 # Yonatan Koritny - Portfolio
 
-This is the source code for my personal portfolio website, showcasing my work as a Video Editor, Developer, and Artist.
+This is the source code for my personal portfolio website, showcasing my work as a Video Editor and Artist.
 
 ## Technologies Used
 

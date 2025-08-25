@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/portfolio.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Not Found - Yonatan Koritny Portfolio</title>
-    <script>
-      // Handle clean URLs in GitHub Pages
-      (function () {
-        var path = window.location.pathname;
-        var cleanPath = path.replace(/\/$/, ""); // Remove trailing slash if present
-        var pathSegments = cleanPath.split("/");
-        var lastSegment = pathSegments[pathSegments.length - 1];
 
-        // Don't redirect actual 404s
-        if (lastSegment === "404.html") {
-          return;
-        }
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/src/assets/portfolio.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found - Yonatan Koritny Portfolio</title>
+  <script>
+    // Handle clean URLs in GitHub Pages
+    (function () {
+      var path = window.location.pathname;
+      var cleanPath = path.replace(/\/$/, ""); // Remove trailing slash if present
+      var pathSegments = cleanPath.split("/");
+      var lastSegment = pathSegments[pathSegments.length - 1];
 
-        // Check if we're looking for a known page
-        var pages = ["about", "film-editor", "developer", "artist"];
-        if (pages.includes(lastSegment)) {
-          window.location.replace("/" + lastSegment + ".html");
-          return;
-        }
-
-        // Handle index
-        if (lastSegment === "" || lastSegment === "index") {
-          window.location.replace("/index.html");
-          return;
-        }
-
-        // If we reach here, it's a genuine 404
-      })();
-    </script>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Helvetica, Arial, sans-serif;
-        background-color: #f7f7f7;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        padding: 20px;
-        text-align: center;
+      // Don't redirect actual 404s
+      if (lastSegment === "404.html") {
+        return;
       }
 
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
+      // Check if we're looking for a known page
+      var pages = ["about", "film-editor", "art-projects"];
+      if (pages.includes(lastSegment)) {
+        window.location.replace("/" + lastSegment + ".html");
+        return;
       }
 
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
+      // Handle index
+      if (lastSegment === "" || lastSegment === "index") {
+        window.location.replace("/index.html");
+        return;
       }
 
-      .home-button {
-        display: inline-block;
-        background-color: #0066cc;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: background-color 0.2s;
-      }
+      // If we reach here, it's a genuine 404
+    })();
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
 
-      .home-button:hover {
-        background-color: #0055aa;
-      }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
 
-      .links {
-        margin-top: 2rem;
-      }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
 
-      .links a {
-        margin: 0 10px;
-        color: #0066cc;
-        text-decoration: none;
-      }
+    .home-button {
+      display: inline-block;
+      background-color: #0066cc;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
 
-      .links a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Page Not Found</h1>
-    <p>The page you're looking for doesn't exist or has been moved.</p>
-    <a href="/" class="home-button">Go to Home Page</a>
+    .home-button:hover {
+      background-color: #0055aa;
+    }
 
-    <div class="links">
-      <a href="/film-editor">Film Editor</a>
-      <a href="/developer">Developer</a>
-      <a href="/artist">Artist</a>
-      <a href="/about">About</a>
-    </div>
-  </body>
+    .links {
+      margin-top: 2rem;
+    }
+
+    .links a {
+      margin: 0 10px;
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Page Not Found</h1>
+  <p>The page you're looking for doesn't exist or has been moved.</p>
+  <a href="/" class="home-button">Go to Home Page</a>
+
+  <div class="links">
+    <a href="/film-editor">Film Editor</a>
+    <a href="/art-projects">Art Projects</a>
+    <a href="/about">About</a>
+  </div>
+</body>
+
 </html>

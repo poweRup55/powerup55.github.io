@@ -15,8 +15,7 @@ export interface SocialLink {
 
 export const navLinks: NavLink[] = [
   { label: "Video Editor", href: "/film-editor" },
-  { label: "Developer", href: "/developer" },
-  { label: "Artist", href: "/artist" },
+  { label: "Art Projects", href: "/art-projects" },
   { label: "About", href: "/about" },
 ];
 

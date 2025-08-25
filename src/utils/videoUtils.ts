@@ -1,7 +1,6 @@
 import {
   defaultFilmImage,
   defaultArtImage,
-  defaultCodeImage,
   defaultGenericImage,
 } from "../assets/fallbackImages";
 
@@ -50,7 +49,6 @@ export const extractVimeoId = (url: string): string => {
 export const DEFAULT_IMAGES = {
   FILM: defaultFilmImage,
   ARTIST: defaultArtImage,
-  DEVELOPER: defaultCodeImage,
   GENERIC: defaultGenericImage,
 };
 

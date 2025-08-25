@@ -8,7 +8,7 @@ const generateCleanUrlOutputs = () => {
   };
 
   // Add pages
-  const pages = ["about", "film-editor", "developer", "artist"];
+  const pages = ["about", "film-editor", "art-projects"];
   pages.forEach((page) => {
     input[page] = `${page}.html`;
   });

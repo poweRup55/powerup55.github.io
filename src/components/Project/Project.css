@@ -2,6 +2,7 @@
   padding: 40px;
   text-align: center;
 }
+
 .project-popup-note-custom {
   color: #888;
 }
@@ -16,10 +17,11 @@
 .other-projects-custom {
   margin-top: 32px;
 }
+
 .other-projects-btn-custom {
   margin-left: 12px;
 }
 
 .media-card-image-bg {
-  background: #232836;
+  background: var(--surface);
 }

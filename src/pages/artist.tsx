@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../index.css";
-import Artist from "../components/About/Artist";
+import ArtProjects from "../components/About/Artist";
 import Navbar from "../components/NavBar/Navbar";
 import { updatePageMetadata } from "../utils/pageUtils";
 import {
@@ -33,7 +33,7 @@ if (rootElement) {
         </div>
         <main className="main-content main-content-with-nav">
           <div className="content-container">
-            <Artist />
+            <ArtProjects />
           </div>
         </main>
         <Footer />

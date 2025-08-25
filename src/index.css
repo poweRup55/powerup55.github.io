@@ -1,14 +1,14 @@
 :root {
-  --primary: #e6e6e6;
-  --accent: #e6e6e6;
-  --background: #181c24;
-  --sidebar: #232836;
-  --surface: #232836;
-  --text: #e6e6e6;
-  --text-muted: #a0aec0;
+  --primary: #e8b86d;
+  --accent: #d4a574;
+  --background: #2c3142;
+  --sidebar: #363b4d;
+  --surface: #3d4354;
+  --text: #fff;
+  --text-muted: #fff;
   --border-radius: 18px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -22,6 +22,7 @@ a {
   text-decoration: inherit;
   transition: color 0.2s;
 }
+
 a:hover {
   color: var(--primary);
 }
@@ -51,7 +52,7 @@ h3 {
 
 button {
   background: var(--primary);
-  color: #fff;
+  color: #1a1d26;
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -61,9 +62,10 @@ button {
   font-weight: 600;
   box-shadow: var(--shadow-lg);
 }
+
 button:hover {
-  background: var(--primary-dark);
-  color: #fff;
+  background: var(--accent);
+  color: #1a1d26;
 }
 
 #root {
@@ -84,7 +86,7 @@ button:hover {
 
 .hero-section {
   background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%);
-  color: #181c24;
+  color: #1a1d26;
   padding: 4rem 3rem 3rem 3rem;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow-lg);
@@ -96,13 +98,13 @@ button:hover {
   font-size: 3.2rem;
   font-weight: 900;
   margin-bottom: 1.2rem;
-  color: #181c24;
+  color: #1a1d26;
   letter-spacing: -2px;
 }
 
 .hero-section p {
   font-size: 1.35rem;
-  color: #232836;
+  color: #2a2f3e;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
@@ -141,9 +143,11 @@ ul li {
   #root {
     flex-direction: column;
   }
+
   .main-content {
     padding: 0;
   }
+
   .hero-section {
     padding: 2.5rem 1rem 2rem 1rem;
   }
