@@ -1,6 +1,18 @@
 /* Home and landing page styles */
+
+.app-container {
+  min-height: 100vh;
+}
+
+.content-container {
+  height: 100%;
+}
+
+.home-centered-container {
+  height: 100%;
+}
+
 .page-root-custom {
-  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -245,7 +257,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   width: 100%;
   background: var(--background);
 }

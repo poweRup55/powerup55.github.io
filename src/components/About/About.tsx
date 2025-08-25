@@ -23,15 +23,15 @@ const About: React.FC = () => (
           Let's create something amazing together!
         </p>
         <div className="cs-social-icons">
-          <a 
-            href="mailto:yonatan.koritny@gmail.com" 
+          <a
+            href="mailto:yonatan.koritny@gmail.com"
             className="cs-social-icon"
             aria-label="Email"
           >
             <FaEnvelope />
           </a>
-          <a 
-            href="https://www.instagram.com/yonatan_koritny/" 
+          <a
+            href="https://www.instagram.com/yonatan_koritny/"
             className="cs-social-icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -39,8 +39,8 @@ const About: React.FC = () => (
           >
             <FaInstagram />
           </a>
-          <a 
-            href="https://www.linkedin.com/in/yonatan-koritny/" 
+          <a
+            href="https://www.linkedin.com/in/yonatan-koritny/"
             className="cs-social-icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -48,8 +48,8 @@ const About: React.FC = () => (
           >
             <FaLinkedin />
           </a>
-          <a 
-            href="https://vimeo.com/yonatankoritny" 
+          <a
+            href="https://vimeo.com/yonatankoritny"
             className="cs-social-icon"
             target="_blank"
             rel="noopener noreferrer"

@@ -112,7 +112,7 @@ const SocialMedia: React.FC = () => {
         <>
             <div>
                 <ProjectGallery
-                    title="Social media and promotional videos that I've edited"
+                    title="Social Media / Video Editor"
                     projects={socialMediaProjectsState}
                     onProjectClick={handleProjectClick}
                 />

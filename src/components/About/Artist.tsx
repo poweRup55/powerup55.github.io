@@ -16,41 +16,47 @@ interface EnhancedProject extends Project {
 
 const initialArtProjects: EnhancedProject[] = [
   {
-    title: "Society of Spectacles - Yonatan Koritny",
-    description: "Experimental short film exploring visual culture.",
+    title: "Society of Spectacles",
+    description:
+      "An experimental video art piece that delves into the complexities of contemporary visual culture and the societal gaze.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/731561394",
   },
   {
-    title: "I WISH - Yehonatan Koritny",
-    description: "Short poetic video work.",
+    title: "I WISH",
+    description:
+      "A personal and introspective exploration of identity, desire, and the aspirations of men.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/731561698",
   },
-    {
-      title: "Love - Yonatan Koritny - Submission Journal",
-      description: "Short film about love.",
-      image: getFallbackImage("FILM"),
-      url: "https://player.vimeo.com/video/775958232",
-    },
-    {
-      title: "Chronicle Of The Middle East - Yonatan Koritny",
-      description: "Documentary about the Middle East.",
-      image: getFallbackImage("FILM"),
-      url: "https://player.vimeo.com/video/846269431",
-    },
-    {
-      title: "Bari and Ray at the Time of Painting - Yonatan Koritny",
-      description: "Short film about painting and creativity.",
-      image: getFallbackImage("FILM"),
-      url: "https://player.vimeo.com/video/731560581",
-    },
-    {
-      title: "And Then We Became Sad",
-      description: "Short film.",
-      image: getFallbackImage("FILM"),
-      url: "https://player.vimeo.com/video/697717442",
-    },
+  {
+    title: "Love",
+    description:
+      "A tender and intimate portrayal of love as seen through the affectionate eyes of a partner.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/775958232",
+  },
+  {
+    title: "Chronicle Of The Middle East",
+    description:
+      "An experimental documentary examining the intersection of global warming and the political climate in the Middle East.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/846269431",
+  },
+  {
+    title: "Bari and Ray Painting Time",
+    description:
+      "A heartwarming illustration of a conversation between two brothers and their mother.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/731560581",
+  },
+  {
+    title: "And Then We Became Sad",
+    description:
+      "An experimental film that navigates to nowhere.",
+    image: getFallbackImage("FILM"),
+    url: "https://player.vimeo.com/video/697717442",
+  },
 ];
 
 const Artist: React.FC = () => {
