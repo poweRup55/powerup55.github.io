@@ -8,8 +8,9 @@ interface OrbitWord {
 }
 
 const orbitWords: OrbitWord[] = [
+  { label: "Films", ariaLabel: "Films", path: "/films" },
+  { label: "Social Media", ariaLabel: "Social Media", path: "/social-media" },
   { label: "Art Projects", ariaLabel: "Art Projects", path: "/art-projects" },
-  { label: "Video Editor", ariaLabel: "Video Editor", path: "/film-editor" },
 ];
 
 interface OrbitStyle extends React.CSSProperties {

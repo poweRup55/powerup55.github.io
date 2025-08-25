@@ -3,7 +3,7 @@
   --accent: #222234;
   --background: #f6f5f3;
   --sidebar: #faf3eb;
-  --surface: #faf3eb;
+  --surface: #e9d8cd;
   --text: #222234;
   --text-muted: #222234;
   --border-radius: 18px;
@@ -62,10 +62,6 @@ button {
 
 }
 
-button:hover {
-  background: var(--accent);
-  color: var(--background);
-}
 
 #root {
   display: flex;

@@ -178,9 +178,44 @@
 }
 
 .cs-profile-note {
-  line-height: 2;
+  line-height: 1.6;
   text-align: center;
   padding: 2rem;
+}
+
+.cs-profile-tagline {
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.cs-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cs-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cs-social-icon:hover {
+  background: var(--primary);
+  color: var(--background);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .cs-profile-image-wrapper {
@@ -214,7 +249,7 @@
 }
 
 .cs-profile-role {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   color: var(--accent);
   font-weight: 500;
   margin-bottom: 0.5rem;
@@ -222,8 +257,8 @@
 
 .cs-profile-role-fade-wrapper {
   position: relative;
-  max-width: 70%;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 0 20px;
   overflow: hidden;
   display: flex;
   align-items: flex-start;
@@ -235,7 +270,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 8em;
+  height: 300px;
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, var(--background, #fff) 85%);
 }
@@ -323,7 +358,22 @@
   }
 
   .cs-profile-role {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .cs-profile-tagline {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cs-social-icons {
+    gap: 1.2rem;
+  }
+
+  .cs-social-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
   }
 
   .cs-portfolio-title {
