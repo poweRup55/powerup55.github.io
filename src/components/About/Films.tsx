@@ -16,20 +16,20 @@ interface EnhancedProject extends Project {
 
 const filmEditorProjects: EnhancedProject[] = [
     {
-        title: '"Kiki": Doc-Aviv\'s 2023 Audience Choice Award',
+        title: 'Kiki: Doc-Aviv\'s 2023 Audience Choice Award',
         description:
             "After being expelled from every youth-at-risk program and facing criminal charges, Kiki gets one last chance when his sister Gal, a caregiver, takes him on a therapeutic desert journey to help him take responsibility for his future.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057333638",
     },
     {
-        title: '"Odd or Pair"',
+        title: 'Odd or Pair',
         description: "A short documentary about the challenges of finding a soulmate, created at Bezalel.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/691631811",
     },
     {
-        title: "\"Don't Be a Fish\"",
+        title: "Don't Be a Fish",
         description: "A short humorous film about a man who learns the importance of being true to himself.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/775973776",
