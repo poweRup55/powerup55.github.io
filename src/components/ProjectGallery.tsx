@@ -10,10 +10,16 @@ export interface Project {
   url?: string;
 }
 
+
 interface ProjectGalleryProps {
   title: string;
   projects: Project[];
   onProjectClick?: (project: Project) => void;
+}
+
+export interface EnhancedProject extends Project {
+  thumbnailLoaded?: boolean;
+  type?: "vimeo" | "instagram-reel" | "instagram-post" | "instagram-highlight";
 }
 
 const ProjectGallery: React.FC<ProjectGalleryProps> = ({

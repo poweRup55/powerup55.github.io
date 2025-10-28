@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.css";
 import "../styles/Shared.css";
-import { FaEnvelope, FaInstagram, FaLinkedin, FaVimeo } from "react-icons/fa";
+import { FaEnvelope, FaInstagram, FaVimeo } from "react-icons/fa";
 
 const About: React.FC = () => (
   <div className="content-page">
@@ -15,7 +15,16 @@ const About: React.FC = () => (
       <div className="cs-profile-name">Yonatan Koritny</div>
       <div className="cs-profile-role-fade-wrapper" aria-label="Roles and interests">
         <div className="cs-profile-role">
-          Creative Technologist · Visual Storyteller · Cinematic Thinker · Experimental Filmmaker · Motion Graphics Designer · Video Artist · Film Editor · Art Lover · Sound Designer · Hip Hop Lover · Office DJ · Aspiring Music Maker · Movie Buff · Podcast Listener · Urban Cyclist · Traveler · Plant Caretaker · Amateur Chef · Coffee Enthusiast · Dog Person · Pickle Maker · Curious Mind · Science Geek · Lifelong Learner · DIY Tinkerer · Night Owl · Figma Collaborator · Team Player · Knowledge Sharer · Feedback Giver · Continuous Learner · Software Engineer · React & Next.js Expert · TypeScript Specialist · Code Reviewer · Visual Effects Enthusiast · Automation Fan · API Integrator · Problem Solver · Performance Optimizer · CSS Wizard · Gym Bro · Early Adopter · Video Games Master
+          I’m a video editor, filmmaker, and content creator with over seven years of experience producing impactful visual stories for public and private organizations.
+          <br />
+          <br />
+          I specialize in turning ideas into compelling narratives that resonate.
+          <br />
+          <br />
+          I hold a dual bachelor’s degree in Computer Science from the Hebrew University of Jerusalem and Screen-Based Arts from Bezalel Academy of Arts and Design, combining technical precision with creative vision.
+          <br />
+          <br />
+          My work includes award-winning documentaries such as Kiki (Docaviv Audience Choice) and Vacuum, supported by the New Fund for Cinema and Television.
         </div>
       </div>
       <div className="cs-profile-note">
@@ -38,15 +47,6 @@ const About: React.FC = () => (
             aria-label="Instagram"
           >
             <FaInstagram />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/yonatan-koritny/"
-            className="cs-social-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin />
           </a>
           <a
             href="https://vimeo.com/yonatankoritny"

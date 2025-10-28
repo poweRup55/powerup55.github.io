@@ -53,13 +53,14 @@ const RotatingWords: React.FC = () => {
   return (
     <div className="rotating-words-container">
       <a className="center-name" aria-label="Yonatan Koritny" href="/about">
-        Yonatan
+        YONATAN
         <br />
-        Koritny
+        KORITNY
       </a>
 
       {isMobileView ? (
         <div className="static-words-container">
+          <p className="mobile-tagline">Explore my work</p>
           {orbitWords.map((word) => (
             <button
               key={word.label}

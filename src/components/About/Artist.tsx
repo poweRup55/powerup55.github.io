@@ -9,10 +9,10 @@ import {
   getVimeoThumbnail,
   getFallbackImage,
 } from "../../utils/videoUtils";
+import { renderMediaEmbed } from "../../utils/mediaUtils";
+import { EnhancedProject } from "../ProjectGallery";
 
-interface EnhancedProject extends Project {
-  thumbnailLoaded?: boolean;
-}
+import streamThumb from "../images/stream-thumbnail.png";
 
 const initialArtProjects: EnhancedProject[] = [
   {
@@ -21,6 +21,14 @@ const initialArtProjects: EnhancedProject[] = [
       "An experimental video art piece that delves into the complexities of contemporary visual culture and the societal gaze.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/731561394",
+  },
+  {
+    title: "STREAM",
+    description:
+      "Liquid digital water art installation",
+    image: streamThumb,
+    url: "https://www.instagram.com/p/CtaOmVQoz4O/embed",
+    type: "instagram-post",
   },
   {
     title: "I WISH",
@@ -49,14 +57,7 @@ const initialArtProjects: EnhancedProject[] = [
       "A heartwarming illustration of a conversation between two brothers and their mother.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/731560581",
-  },
-  {
-    title: "And Then We Became Sad",
-    description:
-      "An experimental film that navigates to nowhere.",
-    image: getFallbackImage("FILM"),
-    url: "https://player.vimeo.com/video/697717442",
-  },
+  }
 ];
 
 const Artist: React.FC = () => {
@@ -106,35 +107,16 @@ const Artist: React.FC = () => {
     setSelectedProject(null);
   };
 
-  const getPrivacyEnhancedUrl = (url: string): string => {
-    const dntParam = url.includes("?") ? "&dnt=1" : "?dnt=1";
-    return `${url}${dntParam}&controls=1&transparent=0`;
-  };
-
   return (
     <>
       <ProjectGallery
-        title="Art Projects"
+        title="Bezalel Art Projects"
         projects={projects}
         onProjectClick={handleProjectClick}
       />
 
       <Modal isOpen={!!selectedProject} onClose={handleCloseModal}>
-        {selectedProject && (
-          <div className="film-video-container">
-            <h2>{selectedProject.title}</h2>
-            <div className="vimeo-embed-container">
-              <iframe
-                src={getPrivacyEnhancedUrl(selectedProject.url || "")}
-                frameBorder="0"
-                allow="fullscreen; picture-in-picture"
-                allowFullScreen
-                title={selectedProject.title}
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-        )}
+        {selectedProject && renderMediaEmbed(selectedProject)}
       </Modal>
     </>
   );

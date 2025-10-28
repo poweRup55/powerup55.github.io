@@ -9,47 +9,57 @@ import {
     getVimeoThumbnail,
     getFallbackImage,
 } from "../../utils/videoUtils";
+import { renderMediaEmbed } from "../../utils/mediaUtils";
+import instagramReelThumb from "../images/instagram-reel-horse.png";
+import saveTheDateThumb from "../images/save-the-date-thumb.png";
+import { EnhancedProject } from "../ProjectGallery";
 
-interface EnhancedProject extends Project {
-    thumbnailLoaded?: boolean;
-}
 
 const socialMediaProjects: EnhancedProject[] = [
+
+
+    {
+        title: "Ninja Horse",
+        description: "A funny Instagram reel featuring a ninja horse.",
+        image: instagramReelThumb,
+        url: "https://www.instagram.com/reel/DQTyVC3itMv/embed",
+        type: "instagram-reel",
+    },
+    {
+        title: "Save The Date",
+        description: "Creative Save The Date video.",
+        image: saveTheDateThumb,
+        url: "https://www.instagram.com/reel/DMvMfz0tliP/embed",
+        type: "instagram-reel",
+    },
+
     {
         title: "The Secular Yeshiva",
         description: "Short promotional video for the secular yeshiva.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/837674779",
+        type: "vimeo",
     },
     {
         title: "Labor Party Promo",
         description: "One of many promotional videos for the labor party during the 2019 elections.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057304439",
+        type: "vimeo",
     },
     {
         title: "Shakuf & The Seventh Eye",
         description: "A call to action video for Shakuf & The Seventh Eye, an independent newspaper.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057297015",
+        type: "vimeo",
     },
     {
         title: "Camp Barney Medintz",
         description: "Fun and exciting video showcasing the week's highlights.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057303842",
-    },
-    {
-        title: "Ort Hatzor HaGlilit Promo",
-        description: "Promotional video for Ort Hatzor HaGlilit School.",
-        image: getFallbackImage("FILM"),
-        url: "https://player.vimeo.com/video/1057304254",
-    },
-    {
-        title: "Sample Wedding Video",
-        description: "A beautiful wedding video showcasing the special moments.",
-        image: getFallbackImage("FILM"),
-        url: "https://player.vimeo.com/video/1057302984",
+        type: "vimeo",
     },
 ];
 
@@ -103,36 +113,17 @@ const SocialMedia: React.FC = () => {
         setSelectedProject(null);
     };
 
-    const getPrivacyEnhancedUrl = (url: string): string => {
-        const dntParam = url.includes("?") ? "&dnt=1" : "?dnt=1";
-        return `${url}${dntParam}&controls=1&transparent=0`;
-    };
-
     return (
         <>
             <div>
                 <ProjectGallery
-                    title="Social Media / Video Editor"
+                    title="Social Media"
                     projects={socialMediaProjectsState}
                     onProjectClick={handleProjectClick}
                 />
             </div>
             <Modal isOpen={!!selectedProject} onClose={handleCloseModal}>
-                {selectedProject && (
-                    <div className="film-video-container">
-                        <h2>{selectedProject.title}</h2>
-                        <div className="vimeo-embed-container">
-                            <iframe
-                                src={getPrivacyEnhancedUrl(selectedProject.url || "")}
-                                frameBorder="0"
-                                allow="fullscreen; picture-in-picture"
-                                allowFullScreen
-                                title={selectedProject.title}
-                                loading="lazy"
-                            ></iframe>
-                        </div>
-                    </div>
-                )}
+                {selectedProject && renderMediaEmbed(selectedProject)}
             </Modal>
         </>
     );

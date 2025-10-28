@@ -107,6 +107,24 @@
   border-radius: 8px;
 }
 
+/* Instagram embed container */
+.instagram-embed-container {
+  position: relative;
+  width: 540px;
+  max-width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagram-embed-container iframe {
+  width: 100%;
+  min-height: 600px;
+  border-radius: 8px;
+  border: none;
+}
+
 /* YouTube embed style */
 .youtube-embed {
   width: 800px;
@@ -125,6 +143,15 @@
 
   .vimeo-embed-container {
     width: 100%;
+  }
+
+  .instagram-embed-container {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .instagram-embed-container iframe {
+    min-height: 500px;
   }
 
   .youtube-embed {
@@ -160,6 +187,96 @@
   font-weight: 600;
   color: var(--primary);
   margin-bottom: 1rem;
+}
+
+/* CTA button for external links (e.g., Instagram Highlights) */
+.instagram-cta-button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  background: var(--primary);
+  color: var(--background);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+.instagram-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Instagram highlight content layout */
+.instagram-highlight-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  max-width: 600px;
+}
+
+.highlight-message {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.highlight-submessage {
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.highlight-preview-image {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.highlight-preview-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.highlight-preview-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  opacity: 50%;
+}
+
+.highlight-preview-image .instagram-cta-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  margin-top: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 850px) {
+  .instagram-highlight-content {
+    padding: 1.5rem;
+  }
+
+  .highlight-preview-image {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 850px) {
@@ -264,16 +381,6 @@
   align-items: flex-start;
 }
 
-.cs-profile-role-fade-wrapper::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 300px;
-  pointer-events: none;
-  background: linear-gradient(to bottom, transparent, var(--background, #fff) 85%);
-}
 
 .cs-portfolio-title {
   font-size: 2.4rem;

@@ -9,28 +9,38 @@ import {
     getVimeoThumbnail,
     getFallbackImage,
 } from "../../utils/videoUtils";
+import { renderMediaEmbed } from "../../utils/mediaUtils";
+import { EnhancedProject } from "../ProjectGallery";
+import VaccumnThumb from "../images/vacumn-thumbnail.png";
 
-interface EnhancedProject extends Project {
-    thumbnailLoaded?: boolean;
-}
 
 const filmEditorProjects: EnhancedProject[] = [
     {
-        title: 'Kiki: Doc-Aviv\'s 2023 Audience Choice Award',
+        title: "Kiki | Doc-Aviv Audience Choice 2023",
         description:
-            "After being expelled from every youth-at-risk program and facing criminal charges, Kiki gets one last chance when his sister Gal, a caregiver, takes him on a therapeutic desert journey to help him take responsibility for his future.",
+            "After repeated expulsions from youth programs and looming charges, Kiki embarks on a therapeutic desert journey with his caregiver sister to confront responsibility and hope.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057333638",
     },
     {
-        title: 'Odd or Pair',
-        description: "A short documentary about the challenges of finding a soulmate, created at Bezalel.",
+        title: "Vaccumn | Supported by the New Fund for Cinema and Television",
+        description:
+            "A personal documentary about a couple trying to hold onto life and love while living in the shadow of war.",
+        image: VaccumnThumb,
+        url: "https://www.instagram.com/stories/highlights/17900926971014610/",
+        type: "instagram-highlight",
+    },
+    {
+        title: "Odd or Pair",
+        description:
+            "A short documentary exploring the emotional and practical challenges of searching for a soulmate.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/691631811",
     },
     {
         title: "Don't Be a Fish",
-        description: "A short humorous film about a man who learns the importance of being true to himself.",
+        description:
+            "A humorous short about a man who discovers the courage to be authentic.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/775973776",
     },
@@ -86,36 +96,17 @@ const Films: React.FC = () => {
         setSelectedProject(null);
     };
 
-    const getPrivacyEnhancedUrl = (url: string): string => {
-        const dntParam = url.includes("?") ? "&dnt=1" : "?dnt=1";
-        return `${url}${dntParam}&controls=1&transparent=0`;
-    };
-
     return (
         <>
             <div>
                 <ProjectGallery
-                    title="Films / Video Editor"
+                    title="Films"
                     projects={filmProjects}
                     onProjectClick={handleProjectClick}
                 />
             </div>
             <Modal isOpen={!!selectedProject} onClose={handleCloseModal}>
-                {selectedProject && (
-                    <div className="film-video-container">
-                        <h2>{selectedProject.title}</h2>
-                        <div className="vimeo-embed-container">
-                            <iframe
-                                src={getPrivacyEnhancedUrl(selectedProject.url || "")}
-                                frameBorder="0"
-                                allow="fullscreen; picture-in-picture"
-                                allowFullScreen
-                                title={selectedProject.title}
-                                loading="lazy"
-                            ></iframe>
-                        </div>
-                    </div>
-                )}
+                {selectedProject && renderMediaEmbed(selectedProject)}
             </Modal>
         </>
     );

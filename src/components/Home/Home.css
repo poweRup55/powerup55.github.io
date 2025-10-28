@@ -244,6 +244,10 @@
   .navbar--column-mobile .navbar-mobile-menu {
     display: none !important;
   }
+
+  .home-hint-text {
+    display: none;
+  }
 }
 
 @media (min-width: 901px) {
@@ -267,6 +271,30 @@
   align-items: center;
   gap: 2rem;
   width: 100%;
+  position: relative;
+}
+
+.home-hint-text {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 2rem;
+  animation: fadeIn 0.8s ease-in;
+  opacity: 0.8;
+  position: absolute;
+  bottom: -100px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
 }
 
 .home-centered-container>.Navbar {
