@@ -21,7 +21,7 @@ const socialMediaProjects: EnhancedProject[] = [
     {
         title: "Ninja Horse",
         secondaryTitle: "Instagram Reel",
-        description: "A funny Instagram reel featuring a ninja horse.",
+        description: "A romantic gateway turns sour when a ninja horse steals the show.",
         image: instagramReelThumb,
         url: "https://www.instagram.com/reel/DQTyVC3itMv/embed",
         type: "instagram-reel",
@@ -29,7 +29,7 @@ const socialMediaProjects: EnhancedProject[] = [
     {
         title: "Save The Date",
         secondaryTitle: "Instagram Reel",
-        description: "Creative Save The Date video.",
+        description: "Not your typical save the date video.",
         image: saveTheDateThumb,
         url: "https://www.instagram.com/reel/DMvMfz0tliP/embed",
         type: "instagram-reel",
@@ -38,7 +38,7 @@ const socialMediaProjects: EnhancedProject[] = [
     {
         title: "The Secular Yeshiva",
         secondaryTitle: "Promo Video",
-        description: "Short promotional video for the secular yeshiva.",
+        description: "One of those classic promo videos.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/837674779",
         type: "vimeo",
@@ -53,7 +53,7 @@ const socialMediaProjects: EnhancedProject[] = [
     },
     {
         title: "Shakuf & The Seventh Eye",
-        secondaryTitle: "Call to Action",
+        secondaryTitle: "Call to Action Video",
         description: "A call to action video for Shakuf & The Seventh Eye, an independent newspaper.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057297015",
