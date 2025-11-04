@@ -19,11 +19,16 @@
 
 .media-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: 1fr 1fr;
+
   gap: 2.5rem;
   width: 90vw;
   max-width: 1200px;
   padding: 2rem 0;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .media-card {
