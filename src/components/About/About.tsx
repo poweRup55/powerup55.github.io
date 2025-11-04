@@ -15,16 +15,13 @@ const About: React.FC = () => (
       <div className="cs-profile-name">Yonatan Koritny</div>
       <div className="cs-profile-role-fade-wrapper" aria-label="Roles and interests">
         <div className="cs-profile-role">
-          I’m a video editor, filmmaker, and content creator with over seven years of experience producing impactful visual stories for public and private organizations.
-          <br />
-          <br />
-          I specialize in turning ideas into compelling narratives that resonate.
-          <br />
-          <br />
-          I hold a dual bachelor’s degree in Computer Science from the Hebrew University of Jerusalem and Screen-Based Arts from Bezalel Academy of Arts and Design, combining technical precision with creative vision.
-          <br />
-          <br />
-          My work includes award-winning documentaries such as Kiki (Docaviv Audience Choice) and Vacuum, supported by the New Fund for Cinema and Television.
+          <ul className="cs-bullets about-bullets">
+            <li>Video editor, filmmaker, and content creator.</li>
+            <li>Dual B.A. in Computer Science and Media.</li>
+            <li>7+ years crafting impactful visual stories.</li>
+            <li>Turns ideas into compelling narratives.</li>
+            <li>Open to collaborations worldwide.</li>
+          </ul>
         </div>
       </div>
       <div className="cs-profile-note">

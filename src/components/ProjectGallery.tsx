@@ -5,6 +5,7 @@ import { MediaCardProps } from "./Project/MediaCard";
 
 export interface Project {
   title: string;
+  secondaryTitle?: string;
   description: string;
   image?: string;
   url?: string;
@@ -19,6 +20,7 @@ interface ProjectGalleryProps {
 
 export interface EnhancedProject extends Project {
   thumbnailLoaded?: boolean;
+  customThumbnail?: boolean;
   type?: "vimeo" | "instagram-reel" | "instagram-post" | "instagram-highlight";
 }
 
@@ -47,6 +49,7 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({
 
   const cards: MediaCardProps[] = projects.map((project) => ({
     title: project.title,
+    secondaryTitle: project.secondaryTitle,
     description: project.description,
     image: project.image,
     onClick: () => handleProjectClick(project),

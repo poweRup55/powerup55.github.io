@@ -11,27 +11,33 @@ import {
 } from "../../utils/videoUtils";
 import { renderMediaEmbed } from "../../utils/mediaUtils";
 import { EnhancedProject } from "../ProjectGallery";
-import VaccumnThumb from "../images/vacumn-thumbnail.png";
+import vacuumThumb from "../images/vacumn-thumbnail.png";
+import kikiThumb from "../images/kiki-thumbnail.jpg";
 
 
 const filmEditorProjects: EnhancedProject[] = [
     {
-        title: "Kiki | Doc-Aviv Audience Choice 2023",
+        title: "Kiki",
+        secondaryTitle: "Doc-Aviv Audience Choice 2023",
         description:
             "After repeated expulsions from youth programs and looming charges, Kiki embarks on a therapeutic desert journey with his caregiver sister to confront responsibility and hope.",
-        image: getFallbackImage("FILM"),
+        image: kikiThumb,
+        customThumbnail: true,
         url: "https://player.vimeo.com/video/1057333638",
+
     },
     {
-        title: "Vaccumn | Supported by the New Fund for Cinema and Television",
+        title: "Vacuum",
+        secondaryTitle: "Supported by the New Fund for Cinema and Television",
         description:
             "A personal documentary about a couple trying to hold onto life and love while living in the shadow of war.",
-        image: VaccumnThumb,
+        image: vacuumThumb,
         url: "https://www.instagram.com/stories/highlights/17900926971014610/",
         type: "instagram-highlight",
     },
     {
         title: "Odd or Pair",
+        secondaryTitle: "Short Documentary",
         description:
             "A short documentary exploring the emotional and practical challenges of searching for a soulmate.",
         image: getFallbackImage("FILM"),
@@ -39,6 +45,7 @@ const filmEditorProjects: EnhancedProject[] = [
     },
     {
         title: "Don't Be a Fish",
+        secondaryTitle: "Short Film",
         description:
             "A humorous short about a man who discovers the courage to be authentic.",
         image: getFallbackImage("FILM"),
@@ -60,7 +67,7 @@ const Films: React.FC = () => {
         ) => {
             const updatedProjects = await Promise.all(
                 projects.map(async (project) => {
-                    if (!project.thumbnailLoaded && project.url) {
+                    if (!project.thumbnailLoaded && project.url && !project.customThumbnail) {
                         const videoId = extractVimeoId(project.url);
                         if (videoId) {
                             try {
@@ -106,7 +113,13 @@ const Films: React.FC = () => {
                 />
             </div>
             <Modal isOpen={!!selectedProject} onClose={handleCloseModal}>
-                {selectedProject && renderMediaEmbed(selectedProject)}
+                {selectedProject && (
+                    <div className="project-popup">
+                        <h2 className="project-popup-title">{selectedProject.title}</h2>
+                        <p className="project-popup-description">{selectedProject.description}</p>
+                        {renderMediaEmbed(selectedProject)}
+                    </div>
+                )}
             </Modal>
         </>
     );

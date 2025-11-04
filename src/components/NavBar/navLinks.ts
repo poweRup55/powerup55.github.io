@@ -14,8 +14,8 @@ export interface SocialLink {
 }
 
 export const navLinks: NavLink[] = [
-  { label: "Films", href: "/films" },
   { label: "Social Media", href: "/social-media" },
+  { label: "Films", href: "/films" },
   { label: "Bezalel Art Projects", href: "/art-projects" },
   { label: "About", href: "/about" },
 ];

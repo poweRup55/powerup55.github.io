@@ -1,7 +1,9 @@
 import React from "react";
+import "./Project.css";
 
 export interface MediaCardProps {
   title: string;
+  secondaryTitle?: string;
   description: string;
   image?: string | React.ReactNode;
   onClick?: () => void;
@@ -11,6 +13,7 @@ export interface MediaCardProps {
 
 const MediaCard: React.FC<MediaCardProps> = ({
   title,
+  secondaryTitle,
   description,
   image,
   onClick,
@@ -45,14 +48,24 @@ const MediaCard: React.FC<MediaCardProps> = ({
       {image && (
         <div className="media-card-image">
           {typeof image === "string" ? <img src={image} alt={title} /> : image}
+          <div className="media-card-overlay">
+            <div className="media-card-overlay-content">
+              <div className="media-card-title">{title}</div>
+              {secondaryTitle && (
+                <div className="media-card-subtitle">{secondaryTitle}</div>
+              )}
+              {/* description intentionally hidden on overlay */}
+            </div>
+          </div>
         </div>
       )}
       {icon && <div className="media-card-icon">{icon}</div>}
-      <div className="media-card-content">
+      <div className="media-card-mobileDesc">
         <div className="media-card-title">{title}</div>
-        <div className="media-card-description">
-          {renderDescription(description)}
-        </div>
+        {secondaryTitle && (
+          <div className="media-card-subtitle">{secondaryTitle}</div>
+        )}
+        {/* description intentionally hidden on mobile summary */}
       </div>
     </div>
   );

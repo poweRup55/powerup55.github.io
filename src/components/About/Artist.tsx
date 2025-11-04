@@ -17,42 +17,50 @@ import streamThumb from "../images/stream-thumbnail.png";
 const initialArtProjects: EnhancedProject[] = [
   {
     title: "Society of Spectacles",
+    secondaryTitle: "Video Art",
     description:
       "An experimental video art piece that delves into the complexities of contemporary visual culture and the societal gaze.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/731561394",
   },
-  {
-    title: "STREAM",
-    description:
-      "Liquid digital water art installation",
-    image: streamThumb,
-    url: "https://www.instagram.com/p/CtaOmVQoz4O/embed",
-    type: "instagram-post",
-  },
+
   {
     title: "I WISH",
+    secondaryTitle: "Video Art",
     description:
-      "A personal and introspective exploration of identity, desire, and the aspirations of men.",
+      "A personal exploration of identity, desire, and the aspirations of men.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/731561698",
   },
   {
     title: "Love",
+    secondaryTitle: "Video Art",
     description:
       "A tender and intimate portrayal of love as seen through the affectionate eyes of a partner.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/775958232",
   },
   {
-    title: "Chronicle Of The Middle East",
+    title: "STREAM",
+    secondaryTitle: "Installation",
     description:
-      "An experimental documentary examining the intersection of global warming and the political climate in the Middle East.",
+      "Liquid digital water ",
+    image: streamThumb,
+    url: "https://www.instagram.com/p/CtaOmVQoz4O/embed",
+    type: "instagram-post",
+  },
+
+  {
+    title: "Chronicle Of The Middle East",
+    secondaryTitle: "Short Documentary",
+    description:
+      "When global warming meets the political climate in the Middle East.",
     image: getFallbackImage("FILM"),
     url: "https://player.vimeo.com/video/846269431",
   },
   {
     title: "Bari and Ray Painting Time",
+    secondaryTitle: "Short Documentary",
     description:
       "A heartwarming illustration of a conversation between two brothers and their mother.",
     image: getFallbackImage("FILM"),
@@ -116,7 +124,13 @@ const Artist: React.FC = () => {
       />
 
       <Modal isOpen={!!selectedProject} onClose={handleCloseModal}>
-        {selectedProject && renderMediaEmbed(selectedProject)}
+        {selectedProject && (
+          <div className="project-popup">
+            <h2 className="project-popup-title">{selectedProject.title}</h2>
+            <p className="project-popup-description">{selectedProject.description}</p>
+            {renderMediaEmbed(selectedProject)}
+          </div>
+        )}
       </Modal>
     </>
   );

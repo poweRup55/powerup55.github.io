@@ -71,221 +71,7 @@
   line-height: 1;
 }
 
-/* Film video container styles */
-.film-video-container {
-  background: var(--background);
-  padding: 20px;
-  border-radius: var(--border-radius);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  max-width: 90vw;
-}
 
-.film-video-container h2 {
-  color: var(--primary);
-  font-size: 1.8rem;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-/* Vimeo embed container with exact aspect ratio */
-.vimeo-embed-container {
-  padding: 56.21% 0 0 0;
-  position: relative;
-  width: 800px;
-  max-width: 100%;
-}
-
-.vimeo-embed-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
-
-/* Instagram embed container */
-.instagram-embed-container {
-  position: relative;
-  width: 540px;
-  max-width: 100%;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.instagram-embed-container iframe {
-  width: 100%;
-  min-height: 600px;
-  border-radius: 8px;
-  border: none;
-}
-
-/* YouTube embed style */
-.youtube-embed {
-  width: 800px;
-  max-width: 100%;
-  height: 450px;
-  border-radius: 8px;
-}
-
-@media (max-width: 850px) {
-  .film-video-container iframe {
-    width: 100%;
-    height: 56.25vw;
-    /* 16:9 aspect ratio */
-    max-height: 450px;
-  }
-
-  .vimeo-embed-container {
-    width: 100%;
-  }
-
-  .instagram-embed-container {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .instagram-embed-container iframe {
-    min-height: 500px;
-  }
-
-  .youtube-embed {
-    width: 100%;
-    height: 56.25vw;
-    /* 16:9 aspect ratio */
-    max-height: 450px;
-  }
-}
-
-/* Video error message styles */
-.video-error-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 800px;
-  max-width: 100%;
-  height: 450px;
-  background-color: var(--surface);
-  border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-}
-
-.video-error-message p {
-  color: var(--text);
-  margin: 0.5rem 0;
-}
-
-.video-error-message p:first-child {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-/* CTA button for external links (e.g., Instagram Highlights) */
-.instagram-cta-button {
-  display: inline-block;
-  padding: 0.7rem 1.1rem;
-  background: var(--primary);
-  color: var(--background);
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 1rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
-}
-
-.instagram-cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Instagram highlight content layout */
-.instagram-highlight-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  max-width: 600px;
-}
-
-.highlight-message {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-
-.highlight-submessage {
-  color: var(--text);
-  margin-bottom: 1rem;
-}
-
-.highlight-preview-image {
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.highlight-preview-image::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.highlight-preview-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  position: relative;
-  opacity: 50%;
-}
-
-.highlight-preview-image .instagram-cta-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  margin-top: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 850px) {
-  .instagram-highlight-content {
-    padding: 1.5rem;
-  }
-
-  .highlight-preview-image {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 850px) {
-  .video-error-message {
-    height: 56.25vw;
-    /* 16:9 aspect ratio */
-    max-height: 450px;
-  }
-}
 
 /* ComputerScience portfolio page styles */
 .cs-portfolio-page {
@@ -355,14 +141,16 @@
   margin-bottom: 1.1rem;
   border: 4px solid var(--background);
   object-fit: cover;
+
 }
 
 .cs-profile-name {
-  font-size: 5rem;
+  font-size: clamp(2.2rem, 6vw, 4rem);
   font-weight: 800;
   color: var(--primary);
   letter-spacing: -1px;
   margin-bottom: 0.2rem;
+  text-shadow: 0 2px 22px rgba(0, 255, 153, 0.1);
 }
 
 .cs-profile-role {
@@ -374,11 +162,62 @@
 
 .cs-profile-role-fade-wrapper {
   position: relative;
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 20px;
   overflow: hidden;
   display: flex;
   align-items: flex-start;
+}
+
+/* Modern bullet list styling */
+.cs-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0 0 0;
+  display: grid;
+  gap: 0.9rem;
+  text-align: center;
+}
+
+.cs-bullets li {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+  color: var(--text);
+  line-height: 1.5;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.cs-bullets li::before {
+  display: none;
+}
+
+/* Centered separator between items (not a dot) */
+.cs-bullets li+li {
+  margin-top: 1.2rem;
+}
+
+.cs-bullets li+li::after {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 2px;
+  background: rgb(226, 176, 171);
+  border-radius: 2px;
+}
+
+.cs-bullets li:hover {
+  transform: translateY(-2px);
+}
+
+/* Layout helper for bullets */
+.about-bullets {
+  margin: 1rem auto 0 auto;
 }
 
 
@@ -511,4 +350,10 @@
 
 .pre-line {
   white-space: pre-line;
+}
+
+@media (max-width: 700px) {
+  .cs-bullets li {
+    padding: 0.8rem 0.9rem;
+  }
 }

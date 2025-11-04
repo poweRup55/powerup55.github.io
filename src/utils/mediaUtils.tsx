@@ -1,4 +1,5 @@
 import React from "react";
+import "../components/styles/Media.css";
 
 export interface MediaProject {
     title: string;
@@ -18,7 +19,6 @@ export const renderMediaEmbed = (project: MediaProject): React.JSX.Element => {
     if (type === "instagram-reel" || type === "instagram-post") {
         return (
             <div className="film-video-container">
-                <h2>{project.title}</h2>
                 <div className="instagram-embed-container">
                     <iframe
                         src={project.url || ""}
@@ -36,7 +36,7 @@ export const renderMediaEmbed = (project: MediaProject): React.JSX.Element => {
     if (type === "instagram-highlight") {
         return (
             <div className="film-video-container">
-                <h2>{project.title}</h2>
+
                 <div className="instagram-highlight-content">
                     {project.image && (
                         <div className="highlight-preview-image">
@@ -62,12 +62,11 @@ export const renderMediaEmbed = (project: MediaProject): React.JSX.Element => {
 
     return (
         <div className="film-video-container">
-            <h2>{project.title}</h2>
             <div className="vimeo-embed-container">
                 <iframe
                     src={getPrivacyEnhancedUrl(project.url || "")}
                     frameBorder="0"
-                    allow="fullscreen; picture-in-picture"
+                    allow="autoplay; fullscreen; picture-in-picture"
                     allowFullScreen
                     title={project.title}
                     loading="lazy"

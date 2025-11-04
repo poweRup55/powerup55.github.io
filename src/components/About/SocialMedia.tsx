@@ -20,6 +20,7 @@ const socialMediaProjects: EnhancedProject[] = [
 
     {
         title: "Ninja Horse",
+        secondaryTitle: "Instagram Reel",
         description: "A funny Instagram reel featuring a ninja horse.",
         image: instagramReelThumb,
         url: "https://www.instagram.com/reel/DQTyVC3itMv/embed",
@@ -27,6 +28,7 @@ const socialMediaProjects: EnhancedProject[] = [
     },
     {
         title: "Save The Date",
+        secondaryTitle: "Instagram Reel",
         description: "Creative Save The Date video.",
         image: saveTheDateThumb,
         url: "https://www.instagram.com/reel/DMvMfz0tliP/embed",
@@ -35,6 +37,7 @@ const socialMediaProjects: EnhancedProject[] = [
 
     {
         title: "The Secular Yeshiva",
+        secondaryTitle: "Promo Video",
         description: "Short promotional video for the secular yeshiva.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/837674779",
@@ -42,6 +45,7 @@ const socialMediaProjects: EnhancedProject[] = [
     },
     {
         title: "Labor Party Promo",
+        secondaryTitle: "Campaign Video",
         description: "One of many promotional videos for the labor party during the 2019 elections.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057304439",
@@ -49,6 +53,7 @@ const socialMediaProjects: EnhancedProject[] = [
     },
     {
         title: "Shakuf & The Seventh Eye",
+        secondaryTitle: "Call to Action",
         description: "A call to action video for Shakuf & The Seventh Eye, an independent newspaper.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057297015",
@@ -56,6 +61,7 @@ const socialMediaProjects: EnhancedProject[] = [
     },
     {
         title: "Camp Barney Medintz",
+        secondaryTitle: "Highlights Video",
         description: "Fun and exciting video showcasing the week's highlights.",
         image: getFallbackImage("FILM"),
         url: "https://player.vimeo.com/video/1057303842",
@@ -123,7 +129,13 @@ const SocialMedia: React.FC = () => {
                 />
             </div>
             <Modal isOpen={!!selectedProject} onClose={handleCloseModal}>
-                {selectedProject && renderMediaEmbed(selectedProject)}
+                {selectedProject && (
+                    <div className="project-popup">
+                        <h2 className="project-popup-title">{selectedProject.title}</h2>
+                        <p className="project-popup-description">{selectedProject.description}</p>
+                        {renderMediaEmbed(selectedProject)}
+                    </div>
+                )}
             </Modal>
         </>
     );
