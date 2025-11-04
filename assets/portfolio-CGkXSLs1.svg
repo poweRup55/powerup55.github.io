@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>Ribbon Y in Circle</title>
+  <circle cx="100" cy="100" r="95" style="fill:none;stroke:gray;stroke-width:8"></circle>
+  <path d="M60 50 L100 100 L140 50 M100 100 L100 160" style="fill:none;stroke:gray;stroke-width:14;stroke-linecap:round;stroke-linejoin:round"></path>
+</svg>
